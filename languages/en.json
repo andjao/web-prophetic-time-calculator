@@ -1,4 +1,5 @@
 {
+    "tTitle": "Prophetic Time Calculator",
     "tAlerts": {
         "tTimeEmpty": "Please fill in the time field!",
         "tNotSelected": "Please select a time type!"

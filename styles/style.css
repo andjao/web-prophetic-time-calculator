@@ -1,4 +1,8 @@
-.flags{
+nav {
+    float: right;
+}
+
+.flags {
     cursor: pointer;
     width: 30px;
 }
