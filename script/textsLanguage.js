@@ -23,13 +23,13 @@ window.onload = function () {
 
     switch (window.location.hash) {
         case "#PT":
-            language = "../languages/pt-BR.json";
+            language = "./languages/pt-BR.json";
             break;
         case "#EN":
-            language = "../languages/en-US.json";
+            language = "./languages/en-US.json";
             break;
         case "#ES":
-            language = "../languages/es-ES.json";
+            language = "./languages/es-ES.json";
             break;
     }
 
