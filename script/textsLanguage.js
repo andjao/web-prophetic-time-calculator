@@ -1,16 +1,17 @@
 window.onload = function () {
-    const navLang = navigator.language;
-    let lang;
-
-    if (navLang.indexOf('pt') > -1) {
-        lang = "./languages/pt-BR.json";
-    } else if (navLang.indexOf('es') > -1) {
-        lang = "./languages/es-ES.json";
+    const pathLanguage = "./languages/"
+    const navLang = navigator.language.substring(0,2);
+    console.log(navLang.indexOf('pt'));
+    console.log(navLang + " " + navLang.indexOf('pt') + " " + navLang.indexOf('en') + " " + navLang.indexOf('es'));
+    if (navLang.indexOf('pt') > -1 || navLang.indexOf('en') > -1 || navLang.indexOf('es') > -1) {
+        setLang(pathLanguage + navLang + ".json");
     } else {
-        lang = "./languages/en-US.json";
+        setLang(pathLanguage + "en.json");
     }
+}
 
-    setLang(lang);
+function capitalize(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 function setLang(path) {
@@ -37,8 +38,4 @@ function setLang(path) {
     httpRequest.open('GET', path, false);
     httpRequest.send();
 
-}
-
-function capitalize(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
 }
