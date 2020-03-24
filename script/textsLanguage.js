@@ -10,6 +10,8 @@ window.onload = function () {
             setLang("en.json");
         }
     }
+
+    document.querySelector("footer").innerHTML +=  new Date().getFullYear() + '©';
 }
 
 function capitalize(string) {
@@ -23,6 +25,7 @@ function setLang(lang) {
             var data = JSON.parse(httpRequest.responseText);
             texts = data;
             document.title = texts.tTitle;
+            document.getElementById("title").innerHTML = texts.tTitle;
             document.getElementById("value").innerHTML = texts.tSingular.tInputValue;
             document.getElementById("btnCalc").innerHTML = texts.tSingular.tBtnCalc;
             document.getElementById("seconds").innerHTML = capitalize(texts.tSingular.tSecond);

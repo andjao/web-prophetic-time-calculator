@@ -1,3 +1,14 @@
+@font-face {
+    font-family: Prophecy;
+    src: url(../fonts/Prophecy.otf);
+ }
+
+header {
+    font-family: Prophecy;
+    height: 50px;
+    text-align: center;
+}
+
 nav {
     float: right;
 }
