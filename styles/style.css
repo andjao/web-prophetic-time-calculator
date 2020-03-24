@@ -1,7 +1,7 @@
 @font-face {
     font-family: Prophecy;
     src: url(../fonts/Prophecy.otf);
- }
+}
 
 header {
     font-family: Prophecy;
@@ -16,4 +16,9 @@ nav {
 .flags {
     cursor: pointer;
     width: 30px;
+}
+
+footer {
+    font-family: Prophecy;
+    text-align: center;
 }

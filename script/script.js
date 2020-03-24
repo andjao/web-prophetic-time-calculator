@@ -13,7 +13,6 @@ function calcTime() {
     if (type === 'seconds') {
         type = value < 2 ? texts.tSingular.tSecond : texts.tPlural.tSeconds;
         tYears = value / 24 / 60 / 60;
-
     } else if (type === "minutes") {
         type = value < 2 ? texts.tSingular.tMinute : texts.tPlural.tSeconds;
         tYears = value / 24 / 60;
