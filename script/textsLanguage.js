@@ -37,24 +37,21 @@ window.onload = function () {
         }
     }
 
-    function toTitle(string, separator = ' ') {
-        return string
-            .split(separator)
-            .map((word) => word[0].toUpperCase() + word.slice(1).toLowerCase())
-            .join(separator)
+    function capitalize (string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
     }
 
     fetchJSONFile(lang, function (data) {
         texts = data;
         document.getElementById("value").innerHTML = texts.tSingular.tInputValue;
         document.getElementById("calc").innerHTML = texts.tSingular.tBtnCalc;
-        document.getElementById("seconds").innerHTML = toTitle(texts.tSingular.tSecond);
-        document.getElementById("minutes").innerHTML = toTitle(texts.tSingular.tMinute);
-        document.getElementById("hours").innerHTML = toTitle(texts.tSingular.tHour);
-        document.getElementById("days").innerHTML = toTitle(texts.tSingular.tDay);
-        document.getElementById("weeks").innerHTML = toTitle(texts.tSingular.tWeek);
-        document.getElementById("months").innerHTML = toTitle(texts.tSingular.tMonth);
-        document.getElementById("years").innerHTML = toTitle(texts.tSingular.tYear);
+        document.getElementById("seconds").innerHTML = capitalize (texts.tSingular.tSecond);
+        document.getElementById("minutes").innerHTML = capitalize (texts.tSingular.tMinute);
+        document.getElementById("hours").innerHTML = capitalize (texts.tSingular.tHour);
+        document.getElementById("days").innerHTML = capitalize (texts.tSingular.tDay);
+        document.getElementById("weeks").innerHTML = capitalize (texts.tSingular.tWeek);
+        document.getElementById("months").innerHTML = capitalize (texts.tSingular.tMonth);
+        document.getElementById("years").innerHTML = capitalize (texts.tSingular.tYear);
     });
 
 }
