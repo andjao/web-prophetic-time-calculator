@@ -11,29 +11,33 @@ function fetchJSONFile(path, callback) {
 }
 
 window.onload = function () {
-    var language;
+    const navLang = navigator.language;
+    let lang;
+    const hashLang = window.location.hash
 
-    if (navigator.language.indexOf('pt') > -1) {
-        language = "./languages/pt-BR.json";
-    } else if (navigator.language.indexOf('es') > -1) {
-        language = "./languages/es-ES.json";
+    if (hashLang === "") {
+        if (navLang.indexOf('pt') > -1) {
+            lang = "./languages/pt-BR.json";
+        } else if (navLang.indexOf('es') > -1) {
+            lang = "./languages/es-ES.json";
+        } else if (navLang.indexOf('en') > -1) {
+            lang = "./languages/en-US.json";
+        }
     } else {
-        language = "./languages/en-US.json";
+        switch (hashLang) {
+            case "#PT":
+                lang = "./languages/pt-BR.json";
+                break;
+            case "#EN":
+                lang = "./languages/en-US.json";
+                break;
+            case "#ES":
+                lang = "./languages/es-ES.json";
+                break;
+        }
     }
 
-    switch (window.location.hash) {
-        case "#PT":
-            language = "./languages/pt-BR.json";
-            break;
-        case "#EN":
-            language = "./languages/en-US.json";
-            break;
-        case "#ES":
-            language = "./languages/es-ES.json";
-            break;
-    }
-
-    fetchJSONFile(language, function (data) {
+    fetchJSONFile(lang, function (data) {
         texts = data;
         document.getElementById("value").innerHTML = texts.tSingular.tInputValue;
         document.getElementById("calc").innerHTML = texts.tSingular.tBtnCalc;
