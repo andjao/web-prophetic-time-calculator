@@ -1,0 +1,32 @@
+{
+    "alerts": {
+        "timeEmpty": "Favor preencher o campo tempo!",
+        "notSelected": "Favor selecionar um tipo de tempo!"
+    },
+    "singular": {
+        "inputValue": "Digite um tempo literal:",
+        "btnCalc": "Calcular",
+        "second": "segundo",
+        "minute": "minuto",
+        "hour": "hora",
+        "day": "dia",
+        "week": "semana",
+        "month": "mês",
+        "year": "ano",
+        "literal": "literal",
+        "propheticM": "profético",
+        "propheticF": "profética"
+    },
+    "plural": {
+        "seconds": "segundos",
+        "minutes": "minutos",
+        "hours": "horas",
+        "days": "dias",
+        "weeks": "semanas",
+        "months": "mêses",
+        "years": "anos",
+        "literal": "literais",
+        "propheticsM": "proféticos",
+        "propheticsF": "proféticas"
+    }
+}

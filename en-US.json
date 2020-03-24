@@ -1,0 +1,6 @@
+{
+    "alerts": {
+        "timeEmpty": "Please fill in the time field!",
+        "notSelected": "Please select a time type!"
+    }
+}

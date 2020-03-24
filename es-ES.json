@@ -1,0 +1,6 @@
+{
+    "alerts": {
+        "timeEmpty": "Por favor, complete el campo tiempo!",
+        "notSelected": "Por favor seleccione un tipo de hora!"
+    }
+}

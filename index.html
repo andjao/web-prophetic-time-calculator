@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js"></script>
+    <script>
+        document.getElementById("value").innerHTML = texts.singular.inputValue;
+        document.getElementById("calc").innerHTML = texts.singular.btnCalc;
+        document.getElementById("seconds").innerHTML = texts.singular.second;
+        document.getElementById("minutes").innerHTML = texts.singular.minute;
+        document.getElementById("hours").innerHTML = texts.singular.hour;
+        document.getElementById("days").innerHTML = texts.singular.day;
+        document.getElementById("weeks").innerHTML = texts.singular.week;
+        document.getElementById("months").innerHTML = texts.singular.month;
+        document.getElementById("years").innerHTML = texts.singular.year;
+    </script>
+</head>
+
+<body>
+    <label for="time" id="value"></label>
+    <input type="number" id="time"><br>
+    <input type="radio" value="seconds" name="time">
+    <label for="seconds" id='seconds'></label><br>
+    <input type="radio" value="minutes" name="time">
+    <label for="minutes" id="minutes"></label><br>
+    <input type="radio" value="hours" name="time">
+    <label for="hours" id="hours"></label><br>
+    <input type="radio" value="days" name="time">
+    <label for="days" id="days"></label><br>
+    <input type="radio" value="weeks" name="time">
+    <label for="weeks" id="weeks"></label><br>
+    <input type="radio" value="months" name="time">
+    <label for="months" id="months"></label><br>
+    <input type="radio" value="years" name="time">
+    <label for="years" id="years"></label><br><br>
+    <button onclick="calcTime()" id="calc"></button><br>
+    <p id="result"></p>
+</body>
+
+</html>
