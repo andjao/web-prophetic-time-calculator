@@ -6,6 +6,9 @@
 header {
     font-family: Prophecy;
     height: 50px;
+}
+
+#title {
     text-align: center;
 }
 
@@ -16,6 +19,10 @@ nav {
 .flags {
     cursor: pointer;
     width: 30px;
+}
+
+#result {
+    height: 200px;
 }
 
 footer {
