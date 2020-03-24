@@ -26,11 +26,11 @@ window.onload = function () {
 
     document.getElementById("value").innerHTML = texts.tSingular.tInputValue;
     document.getElementById("calc").innerHTML = texts.tSingular.tBtnCalc;
-    document.getElementById("tSeconds").innerHTML = texts.tSingular.tSecond;
-    document.getElementById("tMinutes").innerHTML = texts.tSingular.tMinute;
-    document.getElementById("tHours").innerHTML = texts.tSingular.tHour;
-    document.getElementById("tDays").innerHTML = texts.tSingular.tDay;
-    document.getElementById("tWeeks").innerHTML = texts.tSingular.tWeek;
-    document.getElementById("tMonths").innerHTML = texts.tSingular.tMonth;
-    document.getElementById("tYears").innerHTML = texts.tSingular.tYear;
+    document.getElementById("seconds").innerHTML = texts.tSingular.tSecond;
+    document.getElementById("minutes").innerHTML = texts.tSingular.tMinute;
+    document.getElementById("hours").innerHTML = texts.tSingular.tHour;
+    document.getElementById("days").innerHTML = texts.tSingular.tDay;
+    document.getElementById("weeks").innerHTML = texts.tSingular.tWeek;
+    document.getElementById("months").innerHTML = texts.tSingular.tMonth;
+    document.getElementById("years").innerHTML = texts.tSingular.tYear;
 }

@@ -10,23 +10,23 @@ function calcTime() {
     const value = document.getElementById("time").value;
     let type = document.querySelector("input[name='time']:checked").value;
 
-    if (type === 'tSeconds') {
+    if (type === 'seconds') {
         type = value < 2 ? texts.tSingular.tSecond : texts.tPlural.tSeconds;
         tYears = value / 24 / 60 / 60;
 
-    } else if (type === "tMinutes") {
+    } else if (type === "minutes") {
         type = value < 2 ? texts.tSingular.tMinute : texts.tPlural.tSeconds;
         tYears = value / 24 / 60;
-    } else if (type === "tHours") {
+    } else if (type === "hours") {
         type = value < 2 ? texts.tSingular.tHour : texts.tPlural.tHour;
         tYears = value / 24;
-    } else if (type === "tDays") {
+    } else if (type === "days") {
         type = value < 2 ? texts.tSingular.tDay : texts.tPlural.tDays;
         tYears = value;
-    } else if (type === "tWeeks") {
+    } else if (type === "weeks") {
         type = value < 2 ? texts.tSingular.tWeek : texts.tPlural.tWeeks;
         tYears = value * 7;
-    } else if (type === "tMonths") {
+    } else if (type === "months") {
         type = value < 2 ? texts.tSingular.tMonth : texts.tPlural.tMonths;
         tYears = value * 30;
     } else {
