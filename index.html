@@ -10,9 +10,9 @@
 <body>
     <header>
         <nav>
-            <a onclick="changeLang('pt')"><img class="flags" src="images/pt-BR.svg"></a>
-            <a onclick="changeLang('en')"><img class="flags" src="images/en-US.svg"></a>
-            <a onclick="changeLang('es')"><img class="flags" src="images/es-ES.svg"></a><br>
+            <img class="flags" src="images/pt-BR.svg" onclick="changeLang('pt')"><br>
+            <img class="flags" src="images/en-US.svg" onclick="changeLang('en')"><br>
+            <img class="flags" src="images/es-ES.svg" onclick="changeLang('es')">
         </nav>
         <h1 id="title"></h1>
     </header>
@@ -34,6 +34,14 @@
         <input type="radio" value="years" id="years2" name="time">
         <label for="years2" id="years"></label><br><br>
         <button onclick="calcTime()" id="btnCalc"></button><br>
+    </section>
+    <section>
+        <article id="vercicles"></article>
+        <div>
+            <img src="images/arrow.svg" id="back"><img src="images/arrow.svg" id="next">
+        </div>
+    </section>
+    <section>
         <p id="result"></p>
     </section>
     <footer>

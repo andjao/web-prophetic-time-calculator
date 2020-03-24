@@ -24,10 +24,13 @@ function setLang(lang) {
         if (httpRequest.readyState === 4 && httpRequest.status === 200) {
             var data = JSON.parse(httpRequest.responseText);
             texts = data;
+
             document.title = texts.tTitle;
+
             document.getElementById("title").innerHTML = texts.tTitle;
+
             document.getElementById("value").innerHTML = texts.tSingular.tInputValue;
-            document.getElementById("btnCalc").innerHTML = texts.tSingular.tBtnCalc;
+
             document.getElementById("seconds").innerHTML = capitalize(texts.tSingular.tSecond);
             document.getElementById("minutes").innerHTML = capitalize(texts.tSingular.tMinute);
             document.getElementById("hours").innerHTML = capitalize(texts.tSingular.tHour);
@@ -36,6 +39,10 @@ function setLang(lang) {
             document.getElementById("months").innerHTML = capitalize(texts.tSingular.tMonth);
             document.getElementById("years").innerHTML = capitalize(texts.tSingular.tYear);
 
+            document.getElementById("btnCalc").innerHTML = texts.tSingular.tBtnCalc;
+
+            document.getElementById("vercicles").innerHTML = texts.tVersicles[0];
+            
             if (document.getElementById("result").innerHTML !== "") {
                 calcTime();
             };
