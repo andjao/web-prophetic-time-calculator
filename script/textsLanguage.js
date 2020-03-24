@@ -11,13 +11,26 @@ function fetchJSONFile(path, callback) {
 }
 
 window.onload = function () {
-    let language;
+    var language;
+
     if (navigator.language.indexOf('pt') > -1) {
         language = "../languages/pt-BR.json";
     } else if (navigator.language.indexOf('es') > -1) {
         language = "../languages/es-ES.json";
     } else {
         language = "../languages/en-US.json";
+    }
+
+    switch (window.location.hash) {
+        case "#PT":
+            language = "../languages/pt-BR.json";
+            break;
+        case "#EN":
+            language = "../languages/en-US.json";
+            break;
+        case "#ES":
+            language = "../languages/es-ES.json";
+            break;
     }
 
     fetchJSONFile(language, function (data) {
