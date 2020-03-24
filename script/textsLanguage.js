@@ -21,16 +21,15 @@ window.onload = function () {
     }
 
     fetchJSONFile(language, function (data) {
-        texts = data;
+        document.getElementById("value").innerHTML = data.tSingular.tInputValue;
+        document.getElementById("calc").innerHTML = data.tSingular.tBtnCalc;
+        document.getElementById("seconds").innerHTML = data.tSingular.tSecond;
+        document.getElementById("minutes").innerHTML = data.tSingular.tMinute;
+        document.getElementById("hours").innerHTML = data.tSingular.tHour;
+        document.getElementById("days").innerHTML = data.tSingular.tDay;
+        document.getElementById("weeks").innerHTML = data.tSingular.tWeek;
+        document.getElementById("months").innerHTML = data.tSingular.tMonth;
+        document.getElementById("years").innerHTML = data.tSingular.tYear;
     });
 
-    document.getElementById("value").innerHTML = texts.tSingular.tInputValue;
-    document.getElementById("calc").innerHTML = texts.tSingular.tBtnCalc;
-    document.getElementById("seconds").innerHTML = texts.tSingular.tSecond;
-    document.getElementById("minutes").innerHTML = texts.tSingular.tMinute;
-    document.getElementById("hours").innerHTML = texts.tSingular.tHour;
-    document.getElementById("days").innerHTML = texts.tSingular.tDay;
-    document.getElementById("weeks").innerHTML = texts.tSingular.tWeek;
-    document.getElementById("months").innerHTML = texts.tSingular.tMonth;
-    document.getElementById("years").innerHTML = texts.tSingular.tYear;
 }
