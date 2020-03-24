@@ -1,6 +1,32 @@
 {
-    "alerts": {
-        "timeEmpty": "Please fill in the time field!",
-        "notSelected": "Please select a time type!"
+    "tAlerts": {
+        "tTimeEmpty": "Please fill in the time field!",
+        "tNotSelected": "Please select a time type!"
+    },
+    "tSingular": {
+        "tInputValue": "Enter a literal time:",
+        "tBtnCalc": "Calculate",
+        "tSecond": "second",
+        "tMinute": "minute",
+        "tHour": "hour",
+        "tDay": "day",
+        "tWeek": "week",
+        "tMonth": "month",
+        "tYear": "year",
+        "tLiteral": "literal",
+        "tPropheticM": "prophetic",
+        "tPropheticF": "prophetic"
+    },
+    "tPlural": {
+        "tSeconds": "seconds",
+        "tMinutes": "minutes",
+        "tHours": "hours",
+        "tDays": "days",
+        "tWeeks": "weeks",
+        "tMonths": "months",
+        "tYears": "years",
+        "tLiterals": "literals",
+        "tPropheticsM": "prophetic",
+        "tPropheticsF": "prophetic"
     }
 }

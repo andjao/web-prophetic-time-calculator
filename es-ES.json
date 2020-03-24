@@ -1,6 +1,32 @@
 {
-    "alerts": {
-        "timeEmpty": "Por favor, complete el campo tiempo!",
-        "notSelected": "Por favor seleccione un tipo de hora!"
+    "tAlerts": {
+        "tTimeEmpty": "¡Complete el campo de tiempo!",
+        "tNotSelected": "¡Seleccione un tipo de hora!"
+    },
+    "tSingular": {
+        "tInputValue": "Ingrese un tiempo literal:",
+        "tBtnCalc": "Calcular",
+        "tSecond": "segundo",
+        "tMinute": "minuto",
+        "tHour": "hora",
+        "tDay": "día",
+        "tWeek": "semana",
+        "tMonth": "mes",
+        "tYear": "año",
+        "tLiteral": "literal",
+        "tPropheticM": "profético",
+        "tPropheticF": "profético"
+    },
+    "tPlural": {
+        "tSeconds": "segundos",
+        "tMinutes": "minutos",
+        "tHours": "horas",
+        "tDays": "días",
+        "tWeeks": "semanas",
+        "tMonths": "meses",
+        "tYears": "años",
+        "tLiterals": "literales",
+        "tPropheticsM": "profético",
+        "tPropheticsF": "profético"
     }
 }

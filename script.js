@@ -1,101 +1,57 @@
-let texts;
-window.onload = function () {
-    if (navigator.language.indexOf('pt') > -1) {
-        getJSON('pt-BR.json', function (err, data) {
-            if (err !== null) {
-                console.log('Ocorreu um erro' + err);
-            } else {
-                texts = data;
-            }
-        });
-    } else if (navigator.language.indexOf('es') > -1) {
-        getJSON('es-ES.json', function (err, data) {
-            if (err !== null) {
-                console.log('Ocurrio un error' + err);
-            } else {
-                texts = data;
-            }
-        });
-    } else {
-        getJSON('en-US.json', function (err, data) {
-            if (err !== null) {
-                console.log('An error has occurred' + err);
-            } else {
-                texts = data;
-            }
-        });
-    }
-}
-
-var getJSON = function (url, callback) {
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', url, true);
-    xhr.responseType = 'json';
-    xhr.onreadystatechange = function () {
-        var status = xhr.status;
-        if (status === 200) {
-            callback(null, xhr.response);
-        } else {
-            callback(status, xhr.response);
-        }
-    };
-    xhr.send();
-};
-
 function calcTime() {
     if (document.getElementById("time").value === '') {
-        alert(texts.alerts.timeEmpty);
+        alert(texts.tAlerts.tTimeEmpty);
         return;
     } else if (!document.querySelector("input[name='time']:checked")) {
-        alert(texts.alerts.notSelected);
+        alert(texts.tAlerts.tNotSelected);
         return;
     }
 
     const value = document.getElementById("time").value;
     let type = document.querySelector("input[name='time']:checked").value;
 
-    if (type === 'seconds') {
-        type = value < 2 ? texts.singular.second : texts.plural.seconds;
-        years = value / 24 / 60 / 60;
+    if (type === 'tSeconds') {
+        type = value < 2 ? texts.tSingular.tSecond : texts.tPlural.tSeconds;
+        tYears = value / 24 / 60 / 60;
 
-    } else if (type === "minutes") {
-        type = value < 2 ? texts.singular.minute : texts.plural.seconds;
-        years = value / 24 / 60;
-    } else if (type === "hours") {
-        type = value < 2 ? texts.singular.hour : texts.plural.hour;
-        years = value / 24;
-    } else if (type === "days") {
-        type = value < 2 ? texts.singular.day : texts.plural.days;
-        years = value;
-    } else if (type === "weeks") {
-        type = value < 2 ? texts.singular.week : texts.plural.weeks;
-        years = value * 7;
-    } else if (type === "months") {
-        type = value < 2 ? texts.singular.month : texts.plural.months;
-        years = value * 30;
+    } else if (type === "tMinutes") {
+        type = value < 2 ? texts.tSingular.tMinute : texts.tPlural.tSeconds;
+        tYears = value / 24 / 60;
+    } else if (type === "tHours") {
+        type = value < 2 ? texts.tSingular.tHour : texts.tPlural.tHour;
+        tYears = value / 24;
+    } else if (type === "tDays") {
+        type = value < 2 ? texts.tSingular.tDay : texts.tPlural.tDays;
+        tYears = value;
+    } else if (type === "tWeeks") {
+        type = value < 2 ? texts.tSingular.tWeek : texts.tPlural.tWeeks;
+        tYears = value * 7;
+    } else if (type === "tMonths") {
+        type = value < 2 ? texts.tSingular.tMonth : texts.tPlural.tMonths;
+        tYears = value * 30;
     } else {
-        type = value < 2 ? texts.singular.year : texts.plural.years;
-        years = value * 365;
+        type = value < 2 ? texts.tSingular.tYear : texts.tPlural.tYears;
+        tYears = value * 365;
     }
 
-    const months = years * 12;
-    const weeks = years * 52;
-    const days = years * 365;
-    const hours = days * 24;
-    const minutes = hours * 60;
-    const seconds = minutes * 60;
+    const tMonths = tYears * 12;
+    const tWeeks = tYears * 52;
+    const tDays = tYears * 365;
+    const tHours = tDays * 24;
+    const tMinutes = tHours * 60;
+    const tSeconds = tMinutes * 60;
 
     const print = value + " "
         + type + " "
-        + (value < 2 ? texts.singular.literal : texts.plural.literal)
+        + (value < 2 ? texts.tSingular.tLiteral : texts.tPlural.tLiterals)
         + " equivale à:<br><br>"
-        + seconds + " " + (seconds < 2 ? texts.singular.second : texts.plural.seconds) + " " + (seconds < 2 ? texts.singular.propheticM : texts.plural.propheticsM) + ".<br>"
-        + minutes + " " + (minutes < 2 ? texts.singular.minute : texts.plural.minutes) + " " + (minutes < 2 ? texts.singular.propheticM : texts.plural.propheticsM) + ".<br>"
-        + hours + " " + (hours < 2 ? texts.singular.hour : texts.plural.hours) + " " + (hours < 2 ? texts.singular.propheticM : texts.plural.propheticsM) + ".<br>"
-        + days + " " + (days < 2 ? texts.singular.day : texts.plural.days) + " " + (days < 2 ? texts.singular.propheticM : texts.plural.propheticsM) + ".<br>"
-        + weeks + " " + (weeks < 2 ? texts.singular.week : texts.plural.weeks) + " " + (weeks < 2 ? texts.singular.propheticF : texts.plural.propheticsF) + ".<br>"
-        + months + " " + (months < 2 ? texts.singular.month : texts.plural.months) + " " + (months < 2 ? texts.singular.propheticM : texts.plural.propheticsM) + ".<br>"
-        + years + " " + (years < 2 ? texts.singular.year : texts.plural.years) + " " + (years < 2 ? texts.singular.propheticM : texts.plural.propheticsM);
+        + tSeconds + " " + (tSeconds < 2 ? texts.tSingular.tSecond : texts.tPlural.tSeconds) + " " + (tSeconds < 2 ? texts.tSingular.tPropheticM : texts.tPlural.tPropheticsM) + ".<br>"
+        + tMinutes + " " + (tMinutes < 2 ? texts.tSingular.tMinute : texts.tPlural.tMinutes) + " " + (tMinutes < 2 ? texts.tSingular.tPropheticM : texts.tPlural.tPropheticsM) + ".<br>"
+        + tHours + " " + (tHours < 2 ? texts.tSingular.tHour : texts.tPlural.tHours) + " " + (tHours < 2 ? texts.tSingular.tPropheticM : texts.tPlural.tPropheticsM) + ".<br>"
+        + tDays + " " + (tDays < 2 ? texts.tSingular.tDay : texts.tPlural.tDays) + " " + (tDays < 2 ? texts.tSingular.tPropheticM : texts.tPlural.tPropheticsM) + ".<br>"
+        + tWeeks + " " + (tWeeks < 2 ? texts.tSingular.tWeek : texts.tPlural.tWeeks) + " " + (tWeeks < 2 ? texts.tSingular.tPropheticF : texts.tPlural.tPropheticsF) + ".<br>"
+        + tMonths + " " + (tMonths < 2 ? texts.tSingular.tMonth : texts.tPlural.tMonths) + " " + (tMonths < 2 ? texts.tSingular.tPropheticM : texts.tPlural.tPropheticsM) + ".<br>"
+        + tYears + " " + (tYears < 2 ? texts.tSingular.tYear : texts.tPlural.tYears) + " " + (tYears < 2 ? texts.tSingular.tPropheticM : texts.tPlural.tPropheticsM);
 
     document.getElementById("result").innerHTML = print;
 }

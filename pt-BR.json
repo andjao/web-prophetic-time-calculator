@@ -1,32 +1,32 @@
 {
-    "alerts": {
-        "timeEmpty": "Favor preencher o campo tempo!",
-        "notSelected": "Favor selecionar um tipo de tempo!"
+    "tAlerts": {
+        "tTimeEmpty": "Favor preencher o campo tempo!",
+        "tNotSelected": "Favor selecionar um tipo de tempo!"
     },
-    "singular": {
-        "inputValue": "Digite um tempo literal:",
-        "btnCalc": "Calcular",
-        "second": "segundo",
-        "minute": "minuto",
-        "hour": "hora",
-        "day": "dia",
-        "week": "semana",
-        "month": "mês",
-        "year": "ano",
-        "literal": "literal",
-        "propheticM": "profético",
-        "propheticF": "profética"
+    "tSingular": {
+        "tInputValue": "Digite um tempo literal:",
+        "tBtnCalc": "Calcular",
+        "tSecond": "segundo",
+        "tMinute": "minuto",
+        "tHour": "hora",
+        "tDay": "dia",
+        "tWeek": "semana",
+        "tMonth": "mês",
+        "tYear": "ano",
+        "tLiteral": "literal",
+        "tPropheticM": "profético",
+        "tPropheticF": "profética"
     },
-    "plural": {
-        "seconds": "segundos",
-        "minutes": "minutos",
-        "hours": "horas",
-        "days": "dias",
-        "weeks": "semanas",
-        "months": "mêses",
-        "years": "anos",
-        "literal": "literais",
-        "propheticsM": "proféticos",
-        "propheticsF": "proféticas"
+    "tPlural": {
+        "tSeconds": "segundos",
+        "tMinutes": "minutos",
+        "tHours": "horas",
+        "tDays": "dias",
+        "tWeeks": "semanas",
+        "tMonths": "mêses",
+        "tYears": "anos",
+        "tLiterals": "literais",
+        "tPropheticsM": "proféticos",
+        "tPropheticsF": "proféticas"
     }
 }
