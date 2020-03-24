@@ -1,11 +1,14 @@
 window.onload = function () {
-    const pathLanguage = "./languages/"
-    const navLang = navigator.language.substring(0,2);
-    
-    if (navLang.indexOf('pt') > -1 || navLang.indexOf('en') > -1 || navLang.indexOf('es') > -1) {
-        setLang(pathLanguage + navLang + ".json");
+    const navLang = navigator.language.substring(0, 2);
+
+    if (localStorage.getItem("lang")) {
+        setLang(localStorage.getItem("lang") + ".json")
     } else {
-        setLang(pathLanguage + "en.json");
+        if (navLang.indexOf('pt') > -1 || navLang.indexOf('en') > -1 || navLang.indexOf('es') > -1) {
+            setLang(navLang + ".json");
+        } else {
+            setLang("en.json");
+        }
     }
 }
 
@@ -13,7 +16,7 @@ function capitalize(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-function setLang(path) {
+function setLang(lang) {
     var httpRequest = new XMLHttpRequest();
     httpRequest.onreadystatechange = function () {
         if (httpRequest.readyState === 4 && httpRequest.status === 200) {
@@ -34,7 +37,11 @@ function setLang(path) {
             };
         }
     };
-    httpRequest.open('GET', path, false);
+    httpRequest.open('GET', "./languages/" + lang, false);
     httpRequest.send();
+}
 
+function changeLang(lang) {
+    localStorage.setItem("lang", lang);
+    setLang(lang + ".json");
 }
