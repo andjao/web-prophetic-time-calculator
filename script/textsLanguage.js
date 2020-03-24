@@ -13,11 +13,11 @@ function fetchJSONFile(path, callback) {
 window.onload = function () {
     let language;
     if (navigator.language.indexOf('pt') > -1) {
-        language = "pt-BR.json";
+        language = "../languages/pt-BR.json";
     } else if (navigator.language.indexOf('es') > -1) {
-        language = "es-ES.json";
+        language = "../languages/es-ES.json";
     } else {
-        language = "en-US.json";
+        language = "../languages/en-US.json";
     }
 
     fetchJSONFile(language, function (data) {
