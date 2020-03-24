@@ -28,10 +28,15 @@ function setLang(path) {
             document.getElementById("weeks").innerHTML = capitalize(texts.tSingular.tWeek);
             document.getElementById("months").innerHTML = capitalize(texts.tSingular.tMonth);
             document.getElementById("years").innerHTML = capitalize(texts.tSingular.tYear);
+
+            if (document.getElementById("result").innerHTML !== "") {
+                calcTime();
+            };
         }
     };
     httpRequest.open('GET', path, false);
     httpRequest.send();
+
 }
 
 function capitalize(string) {
