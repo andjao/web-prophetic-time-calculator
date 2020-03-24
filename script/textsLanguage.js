@@ -14,11 +14,11 @@ window.onload = function () {
     var language;
 
     if (navigator.language.indexOf('pt') > -1) {
-        language = "../languages/pt-BR.json";
+        language = "./languages/pt-BR.json";
     } else if (navigator.language.indexOf('es') > -1) {
-        language = "../languages/es-ES.json";
+        language = "./languages/es-ES.json";
     } else {
-        language = "../languages/en-US.json";
+        language = "./languages/en-US.json";
     }
 
     switch (window.location.hash) {
