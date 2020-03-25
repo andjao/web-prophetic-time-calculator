@@ -17,12 +17,14 @@ document.addEventListener("click", function (e) {
         document.getElementById(btnID).classList.remove("btnClicked");
         btnID = e.target.id;
         document.getElementById(e.target.id).classList.add("btnClicked");
+        calcTime(e.target.value);
     }
 });
 
 function calcTime(type) {
     if (document.getElementById("time").value === '') {
         alert(texts.tAlerts.tTimeEmpty);
+        document.getElementById(btnID).classList.remove("btnClicked");
         return;
     }
 
