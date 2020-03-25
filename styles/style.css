@@ -21,6 +21,32 @@ nav {
     width: 30px;
 }
 
+#vercicles {
+    height: 50px;
+}
+
+.buttonsV {
+    width: 200px;
+}
+
+.buttonsV img {
+    width: 50px;
+}
+
+#backV {
+    transform: scaleX(-1);
+}
+
+.activatedB {
+    cursor: pointer;
+    opacity: 100%;
+}
+
+.disabledB {
+    cursor: default;
+    opacity: 30%;
+}
+
 #result {
     height: 200px;
 }
