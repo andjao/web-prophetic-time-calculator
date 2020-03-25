@@ -23,8 +23,9 @@ document.addEventListener("click", function (e) {
 
 function calcTime(type) {
     if (document.getElementById("time").value === '') {
-        alert(texts.tAlerts.tTimeEmpty);
         document.getElementById(btnID).classList.remove("btnClicked");
+        document.getElementById("result").innerHTML = null;
+        alert(texts.tAlerts.tTimeEmpty);
         return;
     }
 
