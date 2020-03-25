@@ -40,7 +40,7 @@ function setLang(lang) {
             document.getElementById("years").innerHTML = capitalize(texts.tSingular.tYear);
 
             document.getElementById("btnCalc").innerHTML = texts.tSingular.tBtnCalc;
-            
+
             wordsBold();
 
             if (document.getElementById("result").innerHTML !== "") {
@@ -53,20 +53,35 @@ function setLang(lang) {
 }
 
 function wordsBold() {
-    document.getElementById("versicleP").innerHTML = stringBold(texts.tVersicles[versicles], texts.tPlural.tDays);
-    document.getElementById("versicleP").innerHTML = stringBold(document.getElementById("versicleP").innerHTML, texts.tSingular.tDay);
-    document.getElementById("versicleP").innerHTML = stringBold(document.getElementById("versicleP").innerHTML, texts.tPlural.tYears);
-    document.getElementById("versicleP").innerHTML = stringBold(document.getElementById("versicleP").innerHTML, texts.tSingular.tYear);
+    document.getElementById("versicleP").innerHTML = addStrongEl(texts.tVersicles[versicles], [
+        texts.tPlural.tDays,
+        texts.tSingular.tDay,
+        texts.tPlural.tYears,
+        texts.tSingular.tYear
+    ]);
 }
 
-function stringBold(string, word) {
-    return string = string.replace(
-        new RegExp(
-            string.match(
-                word
-            )[0], 'g'
-        ), `<b>${string.match(word)[0]}</b>`
-    )
+function addStrongEl(string, words) {
+    if (typeof (words) === 'object') {
+        for (let i in words) {
+            string = string.replace(
+                new RegExp(
+                    string.match(
+                        words[i]
+                    ), 'g'
+                ), `<b>${string.match(words[i])}</b>`
+            )
+        }
+        return string;
+    } else {
+        return string = string.replace(
+            new RegExp(
+                string.match(
+                    words
+                )[0], 'g'
+            ), `<b>${string.match(words)[0]}</b>`
+        )
+    }
 }
 
 function changeLang(lang) {
