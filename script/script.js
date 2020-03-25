@@ -36,7 +36,7 @@ function calcTime() {
             tYears = value / 24 / 60;
             break;
         case 'hours':
-            type = value < 2 ? texts.tSingular.tHour : texts.tPlural.tHour;
+            type = value < 2 ? texts.tSingular.tHour : texts.tPlural.tHours;
             tYears = value / 24;
             break;
         case 'days':
@@ -67,13 +67,13 @@ function calcTime() {
         + type + " "
         + (value < 2 ? texts.tSingular.tLiteral : texts.tPlural.tLiterals)
         + " equivale à:<br><br>"
-        + tSeconds + " " + (tSeconds < 2 ? texts.tSingular.tSecond : texts.tPlural.tSeconds) + " " + (tSeconds < 2 ? texts.tSingular.tPropheticM : texts.tPlural.tPropheticsM) + ".<br>"
-        + tMinutes + " " + (tMinutes < 2 ? texts.tSingular.tMinute : texts.tPlural.tMinutes) + " " + (tMinutes < 2 ? texts.tSingular.tPropheticM : texts.tPlural.tPropheticsM) + ".<br>"
-        + tHours + " " + (tHours < 2 ? texts.tSingular.tHour : texts.tPlural.tHours) + " " + (tHours < 2 ? texts.tSingular.tPropheticM : texts.tPlural.tPropheticsM) + ".<br>"
-        + tDays + " " + (tDays < 2 ? texts.tSingular.tDay : texts.tPlural.tDays) + " " + (tDays < 2 ? texts.tSingular.tPropheticM : texts.tPlural.tPropheticsM) + ".<br>"
-        + tWeeks + " " + (tWeeks < 2 ? texts.tSingular.tWeek : texts.tPlural.tWeeks) + " " + (tWeeks < 2 ? texts.tSingular.tPropheticF : texts.tPlural.tPropheticsF) + ".<br>"
-        + tMonths + " " + (tMonths < 2 ? texts.tSingular.tMonth : texts.tPlural.tMonths) + " " + (tMonths < 2 ? texts.tSingular.tPropheticM : texts.tPlural.tPropheticsM) + ".<br>"
-        + tYears + " " + (tYears < 2 ? texts.tSingular.tYear : texts.tPlural.tYears) + " " + (tYears < 2 ? texts.tSingular.tPropheticM : texts.tPlural.tPropheticsM);
+        + Math.floor(tSeconds) + " " + (tSeconds < 2 ? texts.tSingular.tSecond : texts.tPlural.tSeconds) + " " + (tSeconds < 2 ? texts.tSingular.tPropheticM : texts.tPlural.tPropheticsM) + ".<br>"
+        + Math.floor(tMinutes) + " " + (tMinutes < 2 ? texts.tSingular.tMinute : texts.tPlural.tMinutes) + " " + (tMinutes < 2 ? texts.tSingular.tPropheticM : texts.tPlural.tPropheticsM) + ".<br>"
+        + Math.floor(tHours) + " " + (tHours < 2 ? texts.tSingular.tHour : texts.tPlural.tHours) + " " + (tHours < 2 ? texts.tSingular.tPropheticM : texts.tPlural.tPropheticsM) + ".<br>"
+        + Math.floor(tDays) + " " + (tDays < 2 ? texts.tSingular.tDay : texts.tPlural.tDays) + " " + (tDays < 2 ? texts.tSingular.tPropheticM : texts.tPlural.tPropheticsM) + ".<br>"
+        + Math.floor(tWeeks) + " " + (tWeeks < 2 ? texts.tSingular.tWeek : texts.tPlural.tWeeks) + " " + (tWeeks < 2 ? texts.tSingular.tPropheticF : texts.tPlural.tPropheticsF) + ".<br>"
+        + Math.floor(tMonths) + " " + (tMonths < 2 ? texts.tSingular.tMonth : texts.tPlural.tMonths) + " " + (tMonths < 2 ? texts.tSingular.tPropheticM : texts.tPlural.tPropheticsM) + ".<br>"
+        + Math.floor(tYears) + " " + (tYears < 2 ? texts.tSingular.tYear : texts.tPlural.tYears) + " " + (tYears < 2 ? texts.tSingular.tPropheticM : texts.tPlural.tPropheticsM);
 
     document.getElementById("result").innerHTML = print;
 }
