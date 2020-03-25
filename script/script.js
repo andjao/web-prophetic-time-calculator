@@ -2,13 +2,13 @@ let versicles = 0;
 document.addEventListener("click", function (e) {
     if (e.target.id == "nextV") {
         versicles = 1;
-        document.getElementById("versicle").innerHTML = texts.tVersicles[1];
+        wordsBold();
         document.getElementById("backV").className = "activatedB";
         document.getElementById("nextV").className = "disabledB";
     }
     if (e.target.id == "backV") {
         versicles = 0;
-        document.getElementById("versicle").innerHTML = texts.tVersicles[0];
+        wordsBold();
         document.getElementById("backV").className = "disabledB";
         document.getElementById("nextV").className = "activatedB";
     }
@@ -26,27 +26,34 @@ function calcTime() {
     const value = document.getElementById("time").value;
     let type = document.querySelector("input[name='time']:checked").value;
 
-    if (type === 'seconds') {
-        type = value < 2 ? texts.tSingular.tSecond : texts.tPlural.tSeconds;
-        tYears = value / 24 / 60 / 60;
-    } else if (type === "minutes") {
-        type = value < 2 ? texts.tSingular.tMinute : texts.tPlural.tSeconds;
-        tYears = value / 24 / 60;
-    } else if (type === "hours") {
-        type = value < 2 ? texts.tSingular.tHour : texts.tPlural.tHour;
-        tYears = value / 24;
-    } else if (type === "days") {
-        type = value < 2 ? texts.tSingular.tDay : texts.tPlural.tDays;
-        tYears = value;
-    } else if (type === "weeks") {
-        type = value < 2 ? texts.tSingular.tWeek : texts.tPlural.tWeeks;
-        tYears = value * 7;
-    } else if (type === "months") {
-        type = value < 2 ? texts.tSingular.tMonth : texts.tPlural.tMonths;
-        tYears = value * 30;
-    } else {
-        type = value < 2 ? texts.tSingular.tYear : texts.tPlural.tYears;
-        tYears = value * 365;
+    switch (type) {
+        case 'seconds':
+            type = value < 2 ? texts.tSingular.tSecond : texts.tPlural.tSeconds;
+            tYears = value / 24 / 60 / 60;
+            break;
+        case 'minutes':
+            type = value < 2 ? texts.tSingular.tMinute : texts.tPlural.tSeconds;
+            tYears = value / 24 / 60;
+            break;
+        case 'hours':
+            type = value < 2 ? texts.tSingular.tHour : texts.tPlural.tHour;
+            tYears = value / 24;
+            break;
+        case 'days':
+            type = value < 2 ? texts.tSingular.tDay : texts.tPlural.tDays;
+            tYears = value;
+            break;
+        case 'weeks':
+            type = value < 2 ? texts.tSingular.tWeek : texts.tPlural.tWeeks;
+            tYears = value * 7;
+            break;
+        case 'months':
+            type = value < 2 ? texts.tSingular.tMonth : texts.tPlural.tMonths;
+            tYears = value * 30;
+            break;
+        case 'years':
+            type = value < 2 ? texts.tSingular.tYear : texts.tPlural.tYears;
+            tYears = value * 365;
     }
 
     const tMonths = tYears * 12;

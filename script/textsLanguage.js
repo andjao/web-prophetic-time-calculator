@@ -11,7 +11,7 @@ window.onload = function () {
         }
     }
 
-    document.querySelector("footer").innerHTML +=  new Date().getFullYear() + '©';
+    document.querySelector("footer").innerHTML += new Date().getFullYear() + '©';
 }
 
 function capitalize(string) {
@@ -40,9 +40,9 @@ function setLang(lang) {
             document.getElementById("years").innerHTML = capitalize(texts.tSingular.tYear);
 
             document.getElementById("btnCalc").innerHTML = texts.tSingular.tBtnCalc;
-
-            document.getElementById("versicle").innerHTML = texts.tVersicles[versicles];
             
+            wordsBold();
+
             if (document.getElementById("result").innerHTML !== "") {
                 calcTime();
             };
@@ -50,6 +50,23 @@ function setLang(lang) {
     };
     httpRequest.open('GET', "./languages/" + lang, false);
     httpRequest.send();
+}
+
+function wordsBold() {
+    document.getElementById("versicleP").innerHTML = stringBold(texts.tVersicles[versicles], texts.tPlural.tDays);
+    document.getElementById("versicleP").innerHTML = stringBold(document.getElementById("versicleP").innerHTML, texts.tSingular.tDay);
+    document.getElementById("versicleP").innerHTML = stringBold(document.getElementById("versicleP").innerHTML, texts.tPlural.tYears);
+    document.getElementById("versicleP").innerHTML = stringBold(document.getElementById("versicleP").innerHTML, texts.tSingular.tYear);
+}
+
+function stringBold(string, word) {
+    return string = string.replace(
+        new RegExp(
+            string.match(
+                word
+            )[0], 'g'
+        ), `<b>${string.match(word)[0]}</b>`
+    )
 }
 
 function changeLang(lang) {
