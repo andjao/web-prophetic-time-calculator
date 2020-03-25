@@ -10,8 +10,8 @@
 <body>
     <header>
         <nav>
-            <img class="flags" src="images/pt-BR.svg" onclick="changeLang('pt')"><br>
-            <img class="flags" src="images/en-US.svg" onclick="changeLang('en')"><br>
+            <img class="flags" src="images/pt-BR.svg" onclick="changeLang('pt')">
+            <img class="flags" src="images/en-US.svg" onclick="changeLang('en')">
             <img class="flags" src="images/es-ES.svg" onclick="changeLang('es')">
         </nav>
         <h1 id="title"></h1>
@@ -19,29 +19,23 @@
     <section>
         <label for="time" id="value"></label>
         <input type="number" id="time"><br>
-        <input type="radio" value="seconds" id='seconds2' name="time">
-        <label for="seconds2" id='seconds'></label><br>
-        <input type="radio" value="minutes" id="minutes2" name="time">
-        <label for="minutes2" id="minutes"></label><br>
-        <input type="radio" value="hours" id="hours2" name="time">
-        <label for="hours2" id="hours"></label><br>
-        <input type="radio" value="days" id="days2" name="time">
-        <label for="days2" id="days"></label><br>
-        <input type="radio" value="weeks" id="weeks2" name="time">
-        <label for="weeks2" id="weeks"></label><br>
-        <input type="radio" value="months" id="months2" name="time">
-        <label for="months2" id="months"></label><br>
-        <input type="radio" value="years" id="years2" name="time">
-        <label for="years2" id="years"></label><br><br>
-        <button onclick="calcTime()" id="btnCalc"></button><br>
+        <label for="years2" id="years"></label>
+        <button class="btnCalc" onclick="calcTime('seconds')" id="btnCalcSec"></button>
+        <button class="btnCalc" onclick="calcTime('minutes')" id="btnCalcMin"></button>
+        <button class="btnCalc" onclick="calcTime('hours')" id="btnCalcHour"></button>
+        <button class="btnCalc" onclick="calcTime('days')" id="btnCalcDay"></button>
+        <button class="btnCalc" onclick="calcTime('weeks')" id="btnCalcWeek"></button>
+        <button class="btnCalc" onclick="calcTime('months')" id="btnCalcMth"></button>
+        <button class="btnCalc" onclick="calcTime('years')" id="btnCalcYear"></button>
     </section>
     <section class="versiclesS">
-        <article></article>
-        <p id="versicleP"></p>
-        <div class="buttonsV">
-            <img src="images/arrow.svg" class="disabledB" id="backV">
-            <img src="images/arrow.svg" class="activatedB" id="nextV">
-        </div>
+        <article>
+            <p id="versicleP"></p>
+            <div class="buttonsV">
+                <img src="images/arrow.svg" class="disabledB" id="backV">
+                <img src="images/arrow.svg" class="activatedB" id="nextV">
+            </div>
+        </article>
     </section>
     <section>
         <p id="result"></p>

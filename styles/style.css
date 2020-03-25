@@ -1,3 +1,8 @@
+p {
+    margin: 0;
+    padding: 0;
+}
+
 @font-face {
     font-family: Prophecy;
     src: url(../fonts/Prophecy.otf);
@@ -13,7 +18,8 @@ header {
 }
 
 nav {
-    float: right;
+    position: absolute;
+    right: 50px;
 }
 
 .flags {
@@ -25,15 +31,24 @@ nav {
     top: 80px;
     right: 50px;
     position: absolute;
-    width: 30vw;
-    height: 20vw;
+    width: 300px;
+    height: 300px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 #versicleP {
+    padding: 10px;
+    text-align: justify;
     font-style: italic;
 }
 
 .buttonsV {
+    position: absolute;
+    bottom: -30px;
+    transform: translate(-50%, -50%);
+    left: 50%;
 }
 
 .buttonsV img {
@@ -52,6 +67,15 @@ nav {
 .disabledB {
     cursor: default;
     opacity: 30%;
+}
+
+.btnCalc {
+    border-radius: 10px;
+}
+
+.btnCalc:focus {
+    outline: 0;
+    border: 1px solid #000;
 }
 
 #result {

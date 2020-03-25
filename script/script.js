@@ -14,17 +14,13 @@ document.addEventListener("click", function (e) {
     }
 });
 
-function calcTime() {
+function calcTime(type) {
     if (document.getElementById("time").value === '') {
         alert(texts.tAlerts.tTimeEmpty);
-        return;
-    } else if (!document.querySelector("input[name='time']:checked")) {
-        alert(texts.tAlerts.tNotSelected);
         return;
     }
 
     const value = document.getElementById("time").value;
-    let type = document.querySelector("input[name='time']:checked").value;
 
     switch (type) {
         case 'seconds':
