@@ -31,13 +31,13 @@ function setLang(lang) {
 
             document.getElementById("value").innerHTML = texts.tSingular.tInputValue;
 
-            document.getElementById("seconds").innerHTML = capitalize(texts.tSingular.tSecond);
-            document.getElementById("minutes").innerHTML = capitalize(texts.tSingular.tMinute);
-            document.getElementById("hours").innerHTML = capitalize(texts.tSingular.tHour);
-            document.getElementById("days").innerHTML = capitalize(texts.tSingular.tDay);
-            document.getElementById("weeks").innerHTML = capitalize(texts.tSingular.tWeek);
-            document.getElementById("months").innerHTML = capitalize(texts.tSingular.tMonth);
-            document.getElementById("years").innerHTML = capitalize(texts.tSingular.tYear);
+            document.getElementById("seconds").innerHTML = capitalize(texts.tPlural.tSeconds);
+            document.getElementById("minutes").innerHTML = capitalize(texts.tPlural.tMinutes);
+            document.getElementById("hours").innerHTML = capitalize(texts.tPlural.tHours);
+            document.getElementById("days").innerHTML = capitalize(texts.tPlural.tDays);
+            document.getElementById("weeks").innerHTML = capitalize(texts.tPlural.tWeeks);
+            document.getElementById("months").innerHTML = capitalize(texts.tPlural.tMonths);
+            document.getElementById("years").innerHTML = capitalize(texts.tPlural.tYears);
 
             document.getElementById("btnCalc").innerHTML = texts.tSingular.tBtnCalc;
 
