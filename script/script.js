@@ -1,4 +1,5 @@
 let versicles = 0;
+let btnID = 'btnCalcSec';
 document.addEventListener("click", function (e) {
     if (e.target.id == "nextV") {
         versicles = 1;
@@ -11,6 +12,11 @@ document.addEventListener("click", function (e) {
         wordsBold();
         document.getElementById("backV").className = "disabledB";
         document.getElementById("nextV").className = "activatedB";
+    }
+    if (e.target.id.indexOf('btnCalc') > -1) {
+        document.getElementById(btnID).classList.remove("btnClicked");
+        btnID = e.target.id;
+        document.getElementById(e.target.id).classList.add("btnClicked");
     }
 });
 
