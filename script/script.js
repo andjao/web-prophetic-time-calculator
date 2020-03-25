@@ -1,11 +1,14 @@
+let versicles = 0;
 document.addEventListener("click", function (e) {
     if (e.target.id == "nextV") {
-        document.getElementById("vercicles").innerHTML = texts.tVersicles[1];
+        versicles = 1;
+        document.getElementById("versicle").innerHTML = texts.tVersicles[1];
         document.getElementById("backV").className = "activatedB";
         document.getElementById("nextV").className = "disabledB";
     }
     if (e.target.id == "backV") {
-        document.getElementById("vercicles").innerHTML = texts.tVersicles[0];
+        versicles = 0;
+        document.getElementById("versicle").innerHTML = texts.tVersicles[0];
         document.getElementById("backV").className = "disabledB";
         document.getElementById("nextV").className = "activatedB";
     }

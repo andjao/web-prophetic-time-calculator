@@ -41,7 +41,7 @@ function setLang(lang) {
 
             document.getElementById("btnCalc").innerHTML = texts.tSingular.tBtnCalc;
 
-            document.getElementById("vercicles").innerHTML = texts.tVersicles[0];
+            document.getElementById("versicle").innerHTML = texts.tVersicles[versicles];
             
             if (document.getElementById("result").innerHTML !== "") {
                 calcTime();
