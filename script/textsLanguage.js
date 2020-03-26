@@ -41,7 +41,7 @@ function setLang(lang) {
             wordsBold();
 
             if (document.getElementById("result").innerHTML !== "") {
-                calcTime();
+                calcTime(typeSave, true);
             };
         }
     };
