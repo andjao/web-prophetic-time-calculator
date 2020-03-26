@@ -8,51 +8,59 @@ p {
     src: url(../fonts/Prophecy.otf);
 }
 
-header {
+#title {
     font-family: Prophecy;
     height: 80px;
-}
-
-#title {
     text-align: center;
+    font-weight: normal;
+    font-size: 36pt;
 }
 
 nav {
+    background-color: none;
+    padding: 0;
     position: absolute;
-    right: 50px;
+    right: 0;
+    width: auto;
 }
 
 .flags {
     cursor: pointer;
     width: 30px;
+    border: none;
+    margin-left: 5px;
 }
 
 .versiclesS {
-    top: 80px;
-    right: 50px;
-    position: absolute;
+    width: 10;
     width: 300px;
     height: 300px;
-    border: 1px solid #000;
-    border-radius: 10px;
-    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-    background-color: #fff;
+    position: absolute;
+    top: 130px;
+    right: 50px;
+    padding: 10px;
+    text-align: justify;
+    font-style: italic;
+    background-color: #FFF;
 }
 
 #versicleP {
     padding: 10px;
-    text-align: justify;
-    font-style: italic;
+    font-size: 12pt;
 }
 
 .buttonsV {
     position: absolute;
-    bottom: -30px;
+    bottom: -130px;
     transform: translate(-50%, -50%);
     left: 50%;
+    width: 106px;
+
 }
 
 .buttonsV img {
+    display: initial;
+    border: none;
     width: 50px;
 }
 
@@ -70,8 +78,12 @@ nav {
     opacity: 30%;
 }
 
-.btnCalc {
-    border-radius: 10px;
+#time {
+    display: unset;
+    width: 75px;
+    background-color: #fff;
+    padding: 5px;
+    font-size: 18pt;
 }
 
 .btnCalc:focus {
@@ -85,12 +97,8 @@ nav {
 #result {
     padding: 10px;
     margin-top: 10px;
-    width: 300px;
-    height: 170px;
-    border: 1px solid #000;
-    border-radius: 10px;
-    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-    background-color: #fff;
+    width: 250px;
+    height: 250px;
 }
 
 footer {

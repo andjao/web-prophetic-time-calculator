@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <link rel="stylesheet" type="text/css" href="styles/paper.min.css">
     <link rel="stylesheet" type="text/css" href="styles/style.css">
     <script src="script/script.js"></script>
     <script src="script/textsLanguage.js"></script>
@@ -20,17 +21,19 @@
         <label for="time" id="value"></label>
         <input type="number" id="time"><br>
         <label for="years2" id="years"></label>
-        <button class="btnCalc" value="seconds" id="btnCalcSec"></button>
-        <button class="btnCalc" value="minutes" id="btnCalcMin"></button>
-        <button class="btnCalc" value="hours" id="btnCalcHour"></button>
-        <button class="btnCalc" value="days" id="btnCalcDay"></button>
-        <button class="btnCalc" value="weeks" id="btnCalcWeek"></button>
-        <button class="btnCalc" value="months" id="btnCalcMth"></button>
-        <button class="btnCalc" value="years" id="btnCalcYear"></button>
+        <div class="child-borders">
+            <button class="btnCalc" value="seconds" id="btnCalcSec"></button>
+            <button class="btnCalc" value="minutes" id="btnCalcMin"></button>
+            <button class="btnCalc" value="hours" id="btnCalcHour"></button>
+            <button class="btnCalc" value="days" id="btnCalcDay"></button>
+            <button class="btnCalc" value="weeks" id="btnCalcWeek"></button>
+            <button class="btnCalc" value="months" id="btnCalcMth"></button>
+            <button class="btnCalc" value="years" id="btnCalcYear"></button>
+        </div>
     </section>
     <section class="versiclesS">
         <article>
-            <p id="versicleP"></p>
+            <p class="border" id="versicleP"></p>
             <div class="buttonsV">
                 <img src="images/arrow.svg" class="disabledB" id="backV">
                 <img src="images/arrow.svg" class="activatedB" id="nextV">
@@ -38,7 +41,7 @@
         </article>
     </section>
     <section>
-        <p id="result"></p>
+        <div id="result" class="border border-primary"></div>
     </section>
     <footer>
         Marchi Developments
