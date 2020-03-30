@@ -17,11 +17,20 @@
         </nav>
         <h1 id="title"></h1>
     </header>
+    <section class="versiclesS border">
+        <article class="versiclesA">
+            <p id="versicleP"></p>
+            <div class="buttonsV">
+                <img src="images/arrow.svg" class="disabledB" id="backV">
+                <img src="images/arrow.svg" class="activatedB" id="nextV">
+            </div>
+        </article>
+    </section>
     <section>
         <label for="time" id="value"></label>
         <input type="number" id="time"><br>
         <label for="years2" id="years"></label>
-        <div class="child-borders">
+        <div class="child-borders groupBtn">
             <button class="btnCalc" value="seconds" id="btnCalcSec"></button>
             <button class="btnCalc" value="minutes" id="btnCalcMin"></button>
             <button class="btnCalc" value="hours" id="btnCalcHour"></button>
@@ -31,17 +40,8 @@
             <button class="btnCalc" value="years" id="btnCalcYear"></button>
         </div>
     </section>
-    <section class="versiclesS border">
-        <article>
-            <p  id="versicleP"></p>
-            <div class="buttonsV">
-                <img src="images/arrow.svg" class="disabledB" id="backV">
-                <img src="images/arrow.svg" class="activatedB" id="nextV">
-            </div>
-        </article>
-    </section>
     <section>
-        <div id="result" class="border border-primary"></div>
+        <p id="result" class="border border-primary"></p>
     </section>
     <footer>
         Marchi Developments

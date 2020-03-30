@@ -1,6 +1,9 @@
-p {
-    margin: 0;
-    padding: 0;
+* {
+    color: #000;
+}
+
+body {
+    padding: 10px;
 }
 
 @font-face {
@@ -8,17 +11,20 @@ p {
     src: url(../fonts/Prophecy.otf);
 }
 
+header {
+    position: relative;
+}
+
 #title {
     font-family: Prophecy;
-    height: 80px;
     text-align: center;
     font-weight: normal;
     font-size: 36pt;
+    width: auto;
 }
 
 nav {
-    background-color: none;
-    padding: 0;
+    background-color: transparent;
     position: absolute;
     right: 0;
     width: auto;
@@ -34,27 +40,28 @@ nav {
 .versiclesS {
     width: 10;
     width: 300px;
-    height: 350px;
-    position: absolute;
-    top: 130px;
-    right: 50px;
-    padding: 10px;
+    float: right;
     text-align: justify;
     font-style: italic;
     background-color: #FFF;
 }
 
+.versiclesA {
+    position: relative;
+    height: 350px;
+}
+
 #versicleP {
-    padding: 10px;
     font-size: 12pt;
+    padding: 15px 15px 0 15px;
+    margin: 0;
 }
 
 .buttonsV {
     position: absolute;
-    bottom: -100px;
-    transform: translate(-50%, -50%);
+    bottom: 0;
+    transform: translate(-50%, 0);
     left: 50%;
-    width: 106px;
 }
 
 .buttonsV img {
@@ -70,6 +77,11 @@ nav {
 .activatedB {
     cursor: pointer;
     opacity: 100%;
+    transition: all 235ms ease 0s;
+}
+
+.activatedB:hover {
+    transform: translate3d(0, 2px, 0);
 }
 
 .disabledB {
@@ -85,22 +97,34 @@ nav {
     font-size: 18pt;
 }
 
+.groupBtn {
+    width: 63%;
+    margin-top: 10px;
+}
+
 .btnCalc:focus {
     outline: 0;
 }
 
 .btnClicked {
-    border: 2px solid #000;
+    border-color: #0053FF;
+}
+
+:focus {
+    border-color: transparent;
 }
 
 #result {
-    padding: 10px;
+
+    padding: 15px;
     margin-top: 10px;
     width: 300px;
-    height: 300px;
+    height: 250px;
 }
 
 footer {
-    margin: 50px;
+    margin: 25px;
     text-align: center;
 }
+
+@media only screen and (max-width: 768px) {}
