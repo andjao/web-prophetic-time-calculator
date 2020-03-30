@@ -73,10 +73,10 @@ nav {
 .activatedB {
     cursor: pointer;
     opacity: 100%;
-    transition: all 235ms ease 0s;
 }
 
 .activatedB:hover {
+    transition: 235ms;
     transform: translate3d(0, 2px, 0);
 }
 
