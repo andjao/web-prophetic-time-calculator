@@ -70,10 +70,6 @@ nav {
     width: 50px;
 }
 
-#backV {
-    transform: scaleX(-1);
-}
-
 .activatedB {
     cursor: pointer;
     opacity: 100%;
