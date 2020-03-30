@@ -100,14 +100,11 @@ nav {
 
 .btnCalc:focus {
     outline: 0;
+    border-color: #41403e;
 }
 
 .btnClicked {
     border-color: #0053FF;
-}
-
-:focus {
-    border-color: transparent;
 }
 
 #result {
