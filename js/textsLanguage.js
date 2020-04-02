@@ -45,7 +45,7 @@ function setLang(lang) {
             };
         }
     };
-    httpRequest.open('GET', "./languages/" + lang, false);
+    httpRequest.open('GET', "./lang/" + lang, false);
     httpRequest.send();
 }
 
