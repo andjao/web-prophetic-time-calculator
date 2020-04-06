@@ -19,7 +19,7 @@ document.addEventListener("click", function (e) {
         document.getElementById(btnID).classList.remove("btnClicked");
         btnID = e.target.id;
         if (document.getElementById("time").value === '') {
-            document.getElementById("result").innerHTML = null;
+            document.getElementById("time").focus();
             alert(texts.tAlerts.tTimeEmpty);
             return;
         }
@@ -70,17 +70,17 @@ function calcTime(type, changeLang) {
     const tMinutes = (tHours * 60);
     const tSeconds = (tMinutes * 60);
 
-    const print = value + " "
-        + type + " "
-        + (value < 2 ? texts.tSingular.tLiteral : texts.tPlural.tLiterals)
-        + " equivale à:<br><br>"
-        + Math.floor(tSeconds) + " " + (tSeconds < 2 ? texts.tSingular.tSecond : texts.tPlural.tSeconds) + " " + (tSeconds < 2 ? texts.tSingular.tPropheticM : texts.tPlural.tPropheticsM) + ".<br>"
-        + Math.floor(tMinutes) + " " + (tMinutes < 2 ? texts.tSingular.tMinute : texts.tPlural.tMinutes) + " " + (tMinutes < 2 ? texts.tSingular.tPropheticM : texts.tPlural.tPropheticsM) + ".<br>"
-        + Math.floor(tHours) + " " + (tHours < 2 ? texts.tSingular.tHour : texts.tPlural.tHours) + " " + (tHours < 2 ? texts.tSingular.tPropheticM : texts.tPlural.tPropheticsM) + ".<br>"
-        + Math.floor(tDays) + " " + (tDays < 2 ? texts.tSingular.tDay : texts.tPlural.tDays) + " " + (tDays < 2 ? texts.tSingular.tPropheticM : texts.tPlural.tPropheticsM) + ".<br>"
-        + Math.floor(tWeeks) + " " + (tWeeks < 2 ? texts.tSingular.tWeek : texts.tPlural.tWeeks) + " " + (tWeeks < 2 ? texts.tSingular.tPropheticF : texts.tPlural.tPropheticsF) + ".<br>"
-        + Math.floor(tMonths) + " " + (tMonths < 2 ? texts.tSingular.tMonth : texts.tPlural.tMonths) + " " + (tMonths < 2 ? texts.tSingular.tPropheticM : texts.tPlural.tPropheticsM) + ".<br>"
-        + Math.floor(tYears) + " " + (tYears < 2 ? texts.tSingular.tYear : texts.tPlural.tYears) + " " + (tYears < 2 ? texts.tSingular.tPropheticM : texts.tPlural.tPropheticsM);
+    const print = value + " " +
+        type + " " +
+        (value < 2 ? texts.tSingular.tLiteral : texts.tPlural.tLiterals) +
+        " " + texts.result.equivalentTo + ":<br>" +
+        Math.floor(tSeconds) + " " + (tSeconds < 2 ? texts.tSingular.tSecond : texts.tPlural.tSeconds) + " " + (tSeconds < 2 ? texts.tSingular.tPropheticM : texts.tPlural.tPropheticsM) + ".<br>" +
+        Math.floor(tMinutes) + " " + (tMinutes < 2 ? texts.tSingular.tMinute : texts.tPlural.tMinutes) + " " + (tMinutes < 2 ? texts.tSingular.tPropheticM : texts.tPlural.tPropheticsM) + ".<br>" +
+        Math.floor(tHours) + " " + (tHours < 2 ? texts.tSingular.tHour : texts.tPlural.tHours) + " " + (tHours < 2 ? texts.tSingular.tPropheticM : texts.tPlural.tPropheticsM) + ".<br>" +
+        Math.floor(tDays) + " " + (tDays < 2 ? texts.tSingular.tDay : texts.tPlural.tDays) + " " + (tDays < 2 ? texts.tSingular.tPropheticM : texts.tPlural.tPropheticsM) + ".<br>" +
+        Math.floor(tWeeks) + " " + (tWeeks < 2 ? texts.tSingular.tWeek : texts.tPlural.tWeeks) + " " + (tWeeks < 2 ? texts.tSingular.tPropheticF : texts.tPlural.tPropheticsF) + ".<br>" +
+        Math.floor(tMonths) + " " + (tMonths < 2 ? texts.tSingular.tMonth : texts.tPlural.tMonths) + " " + (tMonths < 2 ? texts.tSingular.tPropheticM : texts.tPlural.tPropheticsM) + ".<br>" +
+        Math.floor(tYears) + " " + (tYears < 2 ? texts.tSingular.tYear : texts.tPlural.tYears) + " " + (tYears < 2 ? texts.tSingular.tPropheticM : texts.tPlural.tPropheticsM);
 
     document.getElementById("result").innerHTML = print;
 }
