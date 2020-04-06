@@ -168,6 +168,10 @@ footer {
         width: 100%;
     }
 
+    .btnCalc{
+        margin: 1vw 0 2vw 0;
+    }
+
     .resultS {
         order: 2;
         margin-bottom: 5vw;
@@ -234,7 +238,7 @@ footer {
         transform: translate(-50%, -50%);
         width: max-content;
         left: 50%;
-        bottom: 1vw;
+        bottom: -3vw;
         border: 0.5vw solid #f00;
         border-radius: 50px;
         padding: 2vw;
