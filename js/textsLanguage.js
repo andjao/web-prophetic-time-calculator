@@ -30,6 +30,18 @@ function setLang(lang) {
 
             document.getElementById("title").innerHTML = texts.tTitle;
 
+            document.getElementById("pt").alt = `${texts.words.portuguese} ${texts.words.brazil}`;
+            document.getElementById("pt").title = `${texts.words.portuguese} ${texts.words.brazil}`;
+            document.getElementById("en").alt = `${texts.words.english} ${texts.words.usa}`;
+            document.getElementById("en").title = `${texts.words.english} ${texts.words.usa}`;
+            document.getElementById("es").alt = `${texts.words.spanish} ${texts.words.spain}`;
+            document.getElementById("es").title = `${texts.words.spanish} ${texts.words.spain}`;
+
+            document.getElementById("backV").title = `${texts.words.back}`;
+            document.getElementById("backV").alt = `${texts.words.back}`;
+            document.getElementById("nextV").title = `${texts.words.next}`;
+            document.getElementById("nextV").alt = `${texts.words.next}`;
+
             document.getElementById("value").innerHTML = texts.tSingular.tInputValue;
 
             document.getElementById("btnCalcSec").innerHTML = capitalize(texts.tPlural.tSeconds);

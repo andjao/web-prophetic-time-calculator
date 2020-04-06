@@ -31,8 +31,16 @@
         "tPropheticsF": "prophetic"
     },
     "words": {
+        "portuguese":"Portuguese",
+        "english":"English",
+        "spanish":"Spanish",
+        "brazil":"Brazil",
+        "usa":"USA",
+        "spain":"Spain",
         "result": "Result",
-        "copy": "Copy"
+        "copy": "Copy",
+        "back":"Back",
+        "next":"Next"
     },
     "phrases": {
         "equivalentTo": "equivalent to"
