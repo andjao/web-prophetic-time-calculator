@@ -54,6 +54,8 @@ function setLang(lang) {
             wordsBold();
             document.getElementById("resultT").innerHTML = texts.words.result + ":";
 
+            document.getElementById("tooltip").innerHTML = texts.tAlerts.tTimeEmpty;
+
             if (document.getElementById("result").innerHTML !== "") {
                 calcTime(typeSave, true);
             };

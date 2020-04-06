@@ -21,9 +21,19 @@ document.addEventListener("click", function (e) {
         btnID = e.target.id;
         if (document.getElementById("time").value === '') {
             document.getElementById("time").focus();
-            alert(texts.tAlerts.tTimeEmpty);
+            document.getElementById("tooltip").innerHTML = texts.tAlerts.tTimeEmpty;
+            document.getElementById("tooltip").className = "show";
+            document.getElementById("result").innerHTML = "";
+            document.getElementById("tooltip").className = "show";
+            setTimeout(function () {
+                document.getElementById("tooltip").className = "hiden2";
+            }, 3000);
+            setTimeout(function () {
+                document.getElementById("tooltip").className = "hiden";
+            }, 3500);
             return;
         }
+        document.getElementById("tooltip").className = "hiden";;
         document.getElementById(e.target.id).classList.add("btnClicked");
         calcTime(e.target.value);
     }
