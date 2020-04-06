@@ -3,6 +3,7 @@
 
 <head>
     <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link rel="icon" href="icons/icon-72x72.png" type="image/gif" sizes="16x16">
     <link rel="stylesheet" type="text/css" href="css/paper.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script src="js/script.js"></script>
@@ -15,14 +16,7 @@
             event.waitUntil(
                 caches.open(CACHE_NAME).then(function (cache) {
                     return cache.addAll([
-                        '/',
-                        '/index.html',
-                        '/css/style.css',
-                        '/css/paper.min.css',
-                        '/js/script.js',
-                        '/js/textsLanguage.js',
-                        '/manifest.js',
-                        '/vendor.js',
+                        '/'
                     ]);
                 })
             )
