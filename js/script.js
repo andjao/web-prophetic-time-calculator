@@ -3,6 +3,7 @@ let btnID = 'btnCalcSec';
 let value;
 let typeSave;
 let result;
+let time0, time1, time2;
 document.addEventListener("click", function (e) {
     if (e.target.id == "nextV") {
         versicles = 1;
@@ -19,10 +20,14 @@ document.addEventListener("click", function (e) {
     if (e.target.id.indexOf('btnCalc') > -1) {
         document.getElementById(btnID).classList.remove("btnClicked");
         btnID = e.target.id;
+        clearTimeout(time0);
+        clearTimeout(time1);
+        clearTimeout(time2);
         if (document.getElementById("time").value === '') {
             document.getElementById("time").focus();
             document.getElementById("tooltip").innerHTML = texts.tAlerts.tTimeEmpty;
             document.getElementById("result").innerHTML = "";
+            document.getElementById("tooltip").className = "hiden";
             const time = 200;
             time0 = setTimeout(function () {
                 document.getElementById("tooltip").className = "show";
@@ -35,7 +40,7 @@ document.addEventListener("click", function (e) {
             }, time + 3500);
             return;
         }
-        clearTimeout(time1, time2);
+        
         document.getElementById("tooltip").className = "hiden";;
         document.getElementById(e.target.id).classList.add("btnClicked");
         calcTime(e.target.value);
