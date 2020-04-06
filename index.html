@@ -3,12 +3,12 @@
 
 <head>
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link rel="icon" href="icons/icon-72x72.png" type="image/gif" sizes="16x16">
+    <link rel="icon" href="images/icons/icon-72x72.png" type="image/gif" sizes="16x16">
     <link rel="stylesheet" type="text/css" href="css/paper.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script src="js/script.js"></script>
     <script src="js/textsLanguage.js"></script>
-    <link rel="manifest" href="js/manifest.json">
+    <link rel="manifest" href="manifest.json">
     <script>
         var CACHE_NAME = 'static-v1';
 
@@ -18,28 +18,29 @@
                     return cache.addAll([
                         '/',
                         '/index.html',
+                        '/manifest.json',
                         '/css/',
                         '/css/paper.min.css',
                         '/css/style.css',
                         '/fonts/',
                         '/fonts/Prophecy.otf',
-                        '/icons/',
-                        '/icons/icon-96x96.png',
-                        '/icons/icon-128x128.png',
-                        '/icons/icon-144x144.png',
-                        '/icons/icon-152x152.png',
-                        '/icons/icon-192x192.png',
-                        '/icons/icon-384x384.png',
-                        '/icons/icon-512x512.png',
-                        '/img/',
-                        '/img/arrowL.svg',
-                        '/img/arrowR.svg',
-                        '/img/copy.svg',
-                        '/img/en-US.svg',
-                        '/img/es-ES.svg',
-                        '/img/pt-BR.svg',
+                        '/images/',
+                        '/images/arrowL.svg',
+                        '/images/arrowR.svg',
+                        '/images/copy.svg',
+                        '/images/en-US.svg',
+                        '/images/es-ES.svg',
+                        '/images/pt-BR.svg',
+                        '/images/icons/',
+                        '/images/icons/icon-72x72.png',
+                        '/images/icons/icon-96x96.png',
+                        '/images/icons/icon-128x128.png',
+                        '/images/icons/icon-144x144.png',
+                        '/images/icons/icon-152x152.png',
+                        '/images/icons/icon-192x192.png',
+                        '/images/icons/icon-384x384.png',
+                        '/images/icons/icon-512x512.png',
                         '/js/',
-                        '/js/manifest.js',
                         '/js/script.js',
                         '/js/textsLanguage.js',
                         '/lang/',
@@ -79,9 +80,9 @@
 <body>
     <header>
         <nav>
-            <img class="flags" src="img/pt-BR.svg" id="pt" onclick="changeLang('pt')">
-            <img class="flags" src="img/en-US.svg" id="en" onclick="changeLang('en')">
-            <img class="flags" src="img/es-ES.svg" id="es" onclick="changeLang('es')">
+            <img class="flags" src="images/pt-BR.svg" id="pt" onclick="changeLang('pt')">
+            <img class="flags" src="images/en-US.svg" id="en" onclick="changeLang('en')">
+            <img class="flags" src="images/es-ES.svg" id="es" onclick="changeLang('es')">
         </nav>
         <h1 id="title"></h1>
     </header>
@@ -89,8 +90,8 @@
         <article class="versiclesA">
             <p id="versicleP"></p>
             <div class="buttonsV">
-                <img src="img/arrowL.svg" class="disabledB" id="backV">
-                <img src="img/arrowR.svg" class="activatedB" id="nextV">
+                <img src="images/arrowL.svg" class="disabledB" id="backV">
+                <img src="images/arrowR.svg" class="activatedB" id="nextV">
             </div>
         </article>
     </section>
