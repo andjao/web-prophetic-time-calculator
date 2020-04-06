@@ -12,7 +12,7 @@ window.onload = function () {
     }
 
     document.querySelector("footer").innerHTML += new Date().getFullYear() + '©';
-    document.getElementById("resultT").innerHTML = texts.result.result + ":";
+    document.getElementById("resultT").innerHTML = texts.words.result + ":";
 }
 
 function capitalize(string) {
@@ -40,7 +40,7 @@ function setLang(lang) {
             document.getElementById("btnCalcMth").innerHTML = capitalize(texts.tPlural.tMonths);
             document.getElementById("btnCalcYear").innerHTML = capitalize(texts.tPlural.tYears);
             wordsBold();
-            document.getElementById("resultT").innerHTML = texts.result.result + ":";
+            document.getElementById("resultT").innerHTML = texts.words.result + ":";
 
             if (document.getElementById("result").innerHTML !== "") {
                 calcTime(typeSave, true);

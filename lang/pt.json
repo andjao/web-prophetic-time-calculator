@@ -24,14 +24,17 @@
         "tHours": "horas",
         "tDays": "dias",
         "tWeeks": "semanas",
-        "tMonths": "mêses",
+        "tMonths": "meses",
         "tYears": "anos",
         "tLiterals": "literais",
         "tPropheticsM": "proféticos",
         "tPropheticsF": "proféticas"
     },
-    "result": {
+    "words": {
         "result": "Resultado",
+        "copy": "Copiar"
+    },
+    "phrases": {
         "equivalentTo": "equivale à"
     },
     "tVersicles": {

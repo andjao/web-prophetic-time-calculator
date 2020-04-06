@@ -106,6 +106,26 @@ nav {
     border-color: #0053FF;
 }
 
+.resultS {
+    position: relative;
+    width: 300px;
+    height: 260px;
+}
+
+.copy {
+    position: absolute;
+    width: 30px;
+    top: 20px;
+    right: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.copy:hover {
+    transition: 235ms;
+    transform: translate3d(0, 2px, 0);
+}
+
 #resultT {
     padding: 0 0 0 15px;
 }
@@ -151,17 +171,31 @@ footer {
     .resultS {
         order: 2;
         margin-bottom: 5vw;
+        position: relative;
+        width: 100%;
+        height: 82vw;
+    }
+
+    .copy {
+        position: absolute;
+        width: 10vw;
+        top: 5vw;
+        right: 5vw;
+        border: none;
+        cursor: pointer;
     }
 
     #resultT {
         padding: 0 0 0 3vw;
         margin-bottom: -3vw;
+        font-size: 7vw;
     }
 
     #result {
         padding: 0 3vw 0 3vw;
         width: 100%;
         height: 50vw;
+        font-size: 6.4vw;
     }
 
     .break {
@@ -171,11 +205,21 @@ footer {
     .versiclesS {
         order: 3;
         width: 100%;
-        height: 90vw;
+        height: 110vw;
     }
 
+    #versiclesA {
+        position: relative;
+    }
+
+    #versicleP {
+        font-size: 5vw;
+    }
+
+
     .buttonsV {
-        bottom: 7vw;
+        position: absolute;
+        bottom: -10vw;
     }
 
     footer {

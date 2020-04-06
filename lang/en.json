@@ -30,8 +30,11 @@
         "tPropheticsM": "prophetic",
         "tPropheticsF": "prophetic"
     },
-    "result": {
+    "words": {
         "result": "Result",
+        "copy": "Copy"
+    },
+    "phrases": {
         "equivalentTo": "equivalent to"
     },
     "tVersicles": {
