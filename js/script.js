@@ -22,17 +22,20 @@ document.addEventListener("click", function (e) {
         if (document.getElementById("time").value === '') {
             document.getElementById("time").focus();
             document.getElementById("tooltip").innerHTML = texts.tAlerts.tTimeEmpty;
-            document.getElementById("tooltip").className = "show";
             document.getElementById("result").innerHTML = "";
-            document.getElementById("tooltip").className = "show";
-            setTimeout(function () {
+            const time = 200;
+            time0 = setTimeout(function () {
+                document.getElementById("tooltip").className = "show";
+            }, time);
+            time1 = setTimeout(function () {
                 document.getElementById("tooltip").className = "hiden2";
-            }, 3000);
-            setTimeout(function () {
+            }, time + 3000);
+            time2 = setTimeout(function () {
                 document.getElementById("tooltip").className = "hiden";
-            }, 3500);
+            }, time + 3500);
             return;
         }
+        clearTimeout(time1, time2);
         document.getElementById("tooltip").className = "hiden";;
         document.getElementById(e.target.id).classList.add("btnClicked");
         calcTime(e.target.value);
