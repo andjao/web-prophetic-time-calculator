@@ -3,25 +3,52 @@
 
 <head>
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <meta name="theme-color" content="#ffffff">
-    <meta name="description" content="Aplicação que faz calculo de tempo profético">
-    <link rel="manifest" href="manifest.json">
-    <link rel="icon" href="images/icons/icon-192x192.png.png" type="image/gif" sizes="16x16">
-    <link rel="apple-touch-icon" href="images/icons/icon-72x72.png">
     <link rel="stylesheet" type="text/css" href="css/paper.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script src="js/script.js"></script>
     <script src="js/textsLanguage.js"></script>
-    <script src="js/pwabuilder-sw.js"></script>
-    <script src="js/pwabuilder-sw-register.js"></script>
+    <script>
+        //This is the "Offline page" service worker
+        //Install stage sets up the offline page in the cahche and opens a new cache
+        self.addEventListener('install', function (event) {
+            var offlinePage = new Request('offline.html');
+            event.waitUntil(
+                fetch(offlinePage).then(function (response) {
+                    return caches.open('pwabuilder-offline').then(function (cache) {
+                        console.log('[PWA Builder] Cached offline page during Install' + response.url);
+                        return cache.put(offlinePage, response);
+                    });
+                }));
+        });
+
+        //If any fetch fails, it will show the offline page.
+        //Maybe this should be limited to HTML documents?
+        self.addEventListener('fetch', function (event) {
+            event.respondWith(
+                fetch(event.request).catch(function (error) {
+                    console.error('[PWA Builder] Network request Failed. Serving offline page ' + error);
+                    return caches.open('pwabuilder-offline').then(function (cache) {
+                        return cache.match('offline.html');
+                    });
+                }));
+        });
+
+        //This is a event that can be fired from your page to tell the SW to update the offline page
+        self.addEventListener('refreshOffline', function (response) {
+            return caches.open('pwabuilder-offline').then(function (cache) {
+                console.log('[PWA Builder] Offline page updated from refreshOffline event: ' + response.url);
+                return cache.put(offlinePage, response);
+            });
+        });
+    </script>
 </head>
 
 <body>
     <header>
         <nav>
-            <img class="flags" src="images/pt-BR.svg" id="pt" onclick="changeLang('pt')">
-            <img class="flags" src="images/en-US.svg" id="en" onclick="changeLang('en')">
-            <img class="flags" src="images/es-ES.svg" id="es" onclick="changeLang('es')">
+            <img class="flags" src="img/pt-BR.svg" id="pt" onclick="changeLang('pt')">
+            <img class="flags" src="img/en-US.svg" id="en" onclick="changeLang('en')">
+            <img class="flags" src="img/es-ES.svg" id="es" onclick="changeLang('es')">
         </nav>
         <h1 id="title"></h1>
     </header>
@@ -29,8 +56,8 @@
         <article class="versiclesA">
             <p id="versicleP"></p>
             <div class="buttonsV">
-                <img src="images/arrowL.svg" class="disabledB" id="backV">
-                <img src="images/arrowR.svg" class="activatedB" id="nextV">
+                <img src="img/arrowL.svg" class="disabledB" id="backV">
+                <img src="img/arrowR.svg" class="activatedB" id="nextV">
             </div>
         </article>
     </section>
