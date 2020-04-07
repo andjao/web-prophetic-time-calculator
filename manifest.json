@@ -43,7 +43,7 @@
       "type": "image/png"
     }
   ],
-  "start_url": "https://andjao.github.io/web-prophetic-time-calculator",
+  "start_url": ".",
   "display": "standalone",
   "orientation": "portrait",
   "theme_color": "#FFFFFF",

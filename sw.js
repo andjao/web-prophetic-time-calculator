@@ -1,58 +1,76 @@
-var APP_PREFIX = 'ApplicationName_' // Identifier for this app (this needs to be consistent across every cache update)
-var VERSION = 'version_01' // Version of the off-line cache (change this value everytime you want to update cache)
-var CACHE_NAME = APP_PREFIX + VERSION
-var URLS = [ // Add URL you want to cache in this list.
-    '/{web-prophetic-time-calculator}/', // If you have separate JS/CSS files,
-    '/{web-prophetic-time-calculator}/index.html' // add path to those files here
-]
+const cacheName = 'v1';
+const staticAssets = [
+  './',
+  './index.html',
+  './index.js',
+  './manifest.json',
+  './sw.js',
+  './css',
+  './css/paper.min.css',
+  './css/styles.css',
+  './fonts',
+  './fonts/Prophecy.otf',
+  './icons',
+  './icons/icon-72x72.png',
+  './icons/icon-96x96.png',
+  './icons/icon-128x128.png',
+  './icons/icon-144x144.png',
+  './icons/icon-152x152.png',
+  './icons/icon-192x192.png',
+  './icons/icon-384x384.png',
+  './icons/icon-512x512.png',
+  './img',
+  './img/arrowL.svg',
+  './img/arrowR.svg',
+  './img/copy.svg',
+  './img/en-US.svg',
+  './img/es-ES.svg',
+  './img/pt-BR.svg',
+  './img/pt-BR.svg',
+  './js',
+  './js/script.js',
+  './js/textsLanguage.js',
+  './lang',
+  './lang/en.json',
+  './lang/es.json',
+  './lang/pt.json',
+];
 
-// Respond with cached resources
-self.addEventListener('fetch', function (e) {
-    console.log('fetch request : ' + e.request.url)
-    e.respondWith(
-        caches.match(e.request).then(function (request) {
-            if (request) { // if cache is available, respond with cache
-                console.log('responding with cache : ' + e.request.url)
-                return request
-            } else { // if there are no cache, try fetching request
-                console.log('file is not cached, fetching : ' + e.request.url)
-                return fetch(e.request)
-            }
+self.addEventListener('install', async e => {
+  const cache = await caches.open(cacheName);
+  await cache.addAll(staticAssets);
+  return self.skipWaiting();
+});
 
-            // You can omit if/else for console.log & put one line below like this too.
-            // return request || fetch(e.request)
-        })
-    )
-})
+self.addEventListener('activate', e => {
+  self.clients.claim();
+});
 
-// Cache resources
-self.addEventListener('install', function (e) {
-    e.waitUntil(
-        caches.open(CACHE_NAME).then(function (cache) {
-            console.log('installing cache : ' + CACHE_NAME)
-            return cache.addAll(URLS)
-        })
-    )
-})
+self.addEventListener('fetch', async e => {
+  const req = e.request;
+  const url = new URL(req.url);
 
-// Delete outdated caches
-self.addEventListener('activate', function (e) {
-    e.waitUntil(
-        caches.keys().then(function (keyList) {
-            // `keyList` contains all cache names under your username.github.io
-            // filter out ones that has this app prefix to create white list
-            var cacheWhitelist = keyList.filter(function (key) {
-                return key.indexOf(APP_PREFIX)
-            })
-            // add current cache name to white list
-            cacheWhitelist.push(CACHE_NAME)
+  if (url.origin === location.origin) {
+    e.respondWith(cacheFirst(req));
+  } else {
+    e.respondWith(networkAndCache(req));
+  }
+});
 
-            return Promise.all(keyList.map(function (key, i) {
-                if (cacheWhitelist.indexOf(key) === -1) {
-                    console.log('deleting cache : ' + keyList[i])
-                    return caches.delete(keyList[i])
-                }
-            }))
-        })
-    )
-})
+async function cacheFirst(req) {
+  const cache = await caches.open(cacheName);
+  const cached = await cache.match(req);
+  return cached || fetch(req);
+}
+
+async function networkAndCache(req) {
+  const cache = await caches.open(cacheName);
+  try {
+    const fresh = await fetch(req);
+    await cache.put(req, fresh.clone());
+    return fresh;
+  } catch (e) {
+    const cached = await cache.match(req);
+    return cached;
+  }
+}
