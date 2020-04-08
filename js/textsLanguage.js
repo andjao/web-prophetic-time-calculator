@@ -26,6 +26,13 @@ function setLang(lang) {
             var data = JSON.parse(httpRequest.responseText);
             texts = data;
 
+            const stringManifest = JSON.stringify(manifest);
+            const blob = new Blob([stringManifest], {
+                type: 'application/json'
+            });
+            const manifestURL = URL.createObjectURL(blob);
+            document.querySelector('#manifest').setAttribute('href', manifestURL);
+
             document.title = texts.tTitle;
 
             document.getElementById("title").innerHTML = texts.tTitle;
