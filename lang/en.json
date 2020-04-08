@@ -1,8 +1,7 @@
 {
     "tTitle": "Prophetic Time Calculator",
     "tAlerts": {
-        "tTimeEmpty": "Please fill in the time field!",
-        "tNotSelected": "Please select a time type!"
+        "tTimeEmpty": "Please fill in the time field!"
     },
     "tSingular": {
         "tInputValue": "Enter a literal time:",
@@ -39,6 +38,7 @@
         "spain":"Spain",
         "result": "Result",
         "copy": "Copy",
+        "copied": "Copied",
         "back":"Back",
         "next":"Next"
     },

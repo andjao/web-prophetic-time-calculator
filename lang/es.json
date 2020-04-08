@@ -1,8 +1,7 @@
 {
     "tTitle": "Calculadora de Tiempo Profético",
     "tAlerts": {
-        "tTimeEmpty": "¡Complete el campo de tiempo!",
-        "tNotSelected": "¡Seleccione un tipo de hora!"
+        "tTimeEmpty": "¡Complete el campo de tiempo!"
     },
     "tSingular": {
         "tInputValue": "Ingrese un tiempo literal:",
@@ -39,6 +38,7 @@
         "spain":"España",
         "result": "Resultado",
         "copy": "Copia",
+        "copied": "Copiado",
         "back":"Volver",
         "next":"Siguiente"
     },

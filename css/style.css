@@ -168,7 +168,7 @@ footer {
         width: 100%;
     }
 
-    .btnCalc{
+    .btnCalc {
         margin: 1vw 0 2vw 0;
     }
 
@@ -239,10 +239,8 @@ footer {
         width: max-content;
         left: 50%;
         bottom: -3vw;
-        border: 0.5vw solid #f00;
         border-radius: 50px;
         padding: 2vw;
-        background-color: #f00;
         text-align: center;
         font-size: 5vw;
         color: #fff;

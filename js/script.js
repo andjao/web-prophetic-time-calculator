@@ -4,6 +4,7 @@ let value;
 let typeSave;
 let result;
 let time0, time1, time2;
+let tooltipType;
 document.addEventListener("click", function (e) {
     if (e.target.id == "nextV") {
         versicles = 1;
@@ -18,29 +19,16 @@ document.addEventListener("click", function (e) {
         document.getElementById("nextV").className = "activatedB";
     }
     if (e.target.id.indexOf('btnCalc') > -1) {
+
         document.getElementById(btnID).classList.remove("btnClicked");
         btnID = e.target.id;
-        clearTimeout(time0);
-        clearTimeout(time1);
-        clearTimeout(time2);
         if (document.getElementById("time").value === '') {
             document.getElementById("time").focus();
-            document.getElementById("tooltip").innerHTML = texts.tAlerts.tTimeEmpty;
             document.getElementById("result").innerHTML = "";
-            document.getElementById("tooltip").className = "hiden";
-            const time = 200;
-            time0 = setTimeout(function () {
-                document.getElementById("tooltip").className = "show";
-            }, time);
-            time1 = setTimeout(function () {
-                document.getElementById("tooltip").className = "hiden2";
-            }, time + 3000);
-            time2 = setTimeout(function () {
-                document.getElementById("tooltip").className = "hiden";
-            }, time + 3500);
+            tooltip('alert', texts.tAlerts.tTimeEmpty, 'red');
             return;
         }
-        
+
         document.getElementById("tooltip").className = "hiden";;
         document.getElementById(e.target.id).classList.add("btnClicked");
         calcTime(e.target.value);
@@ -49,6 +37,7 @@ document.addEventListener("click", function (e) {
         let copy = document.getElementById('result2').innerHTML.replace(/<br>/g, "");
         copy = copy.replace(/        /g, "");
         copyStringToClipboard(copy);
+        tooltip(e.target.id, texts.words.copied, '#0071de');
     }
 });
 
@@ -118,4 +107,24 @@ function copyStringToClipboard(str) {
     el.select();
     document.execCommand('copy');
     document.body.removeChild(el);
+}
+
+function tooltip(type, text, color) {
+    clearTimeout(time0);
+    clearTimeout(time1);
+    clearTimeout(time2);
+    tooltipType = type;
+    document.getElementById("tooltip").className = "hiden";
+    document.getElementById("tooltip").innerHTML = text;
+    document.getElementById("tooltip").style.backgroundColor = color;
+    const time = 200;
+    time0 = setTimeout(function () {
+        document.getElementById("tooltip").className = "show";
+    }, time);
+    time1 = setTimeout(function () {
+        document.getElementById("tooltip").className = "hiden2";
+    }, time + 3000);
+    time2 = setTimeout(function () {
+        document.getElementById("tooltip").className = "hiden";
+    }, time + 3500);
 }
