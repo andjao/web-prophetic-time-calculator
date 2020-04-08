@@ -35,6 +35,7 @@ document.addEventListener("click", function (e) {
     if (e.target.id.indexOf('copy') > -1) {
         let copy = document.getElementById('result2').innerHTML.replace(/<br>/g, "");
         copy = copy.replace(/        /g, "");
+        copy = copy.replace(/:/g, ":\n");
         copyStringToClipboard(copy);
         tooltip(e.target.id, texts.words.copied, '#0071de');
     }
