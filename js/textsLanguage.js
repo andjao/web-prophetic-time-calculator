@@ -153,9 +153,12 @@ function openFlags(lang) {
     document.body.appendChild(el);
 
     document.getElementById("pt").classList.remove("hidenFlag");
+    document.getElementById("pt").style.animation = "fadein 0.3s";
     document.getElementById("pt").setAttribute("onclick", "changeLang('pt')");
     document.getElementById("en").classList.remove("hidenFlag");
+    document.getElementById("en").style.animation = "fadein 0.3s";
     document.getElementById("en").setAttribute("onclick", "changeLang('en')");
     document.getElementById("es").classList.remove("hidenFlag");
+    document.getElementById("es").style.animation = "fadein 0.3s";
     document.getElementById("es").setAttribute("onclick", "changeLang('es')");
 }
