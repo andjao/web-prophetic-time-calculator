@@ -199,7 +199,7 @@ footer {
         -webkit-box-direction: normal;
         -ms-flex-direction: column;
         flex-direction: column;
-        margin-top: 11vw;
+        margin-top: 15vw;
     }
 
     #title {
@@ -212,7 +212,8 @@ footer {
         padding: 5vw 0 3vw 2vw;
         text-align: left;
         font-size: 95%;
-        background-color: #fff;
+        background-color: #000;
+        color: #fff;
     }
 
     nav {
@@ -225,12 +226,12 @@ footer {
         right: 0;
         right: -2vw;
         margin: 0;
-        padding: 3.5vw 5vw 0 2vw;
+        padding: 2.5vw 5vw 0 2vw;
     }
 
     .flags {
         width: 9vw;
-        margin: 0 0 2vw 0;
+        margin: 0 0 3vw 0;
     }
 
     .hidenFlag {
