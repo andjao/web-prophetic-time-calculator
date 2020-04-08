@@ -115,18 +115,27 @@ function setFlag(lang) {
     if (lang.indexOf("pt") > -1) {
         document.getElementById("pt").classList.remove("hidenFlag");
         document.getElementById("pt").setAttribute("onclick", "openFlags()");
+        document.getElementById("pt").style.order = '1';
         document.getElementById("en").classList.add("hidenFlag");
+        document.getElementById("en").style.order = '2';
         document.getElementById("es").classList.add("hidenFlag");
+        document.getElementById("es").style.order = '3';
     } else if (lang.indexOf("en") > -1) {
         document.getElementById("pt").classList.add("hidenFlag");
+        document.getElementById("pt").style.order = '3';
         document.getElementById("en").classList.remove("hidenFlag");
         document.getElementById("en").setAttribute("onclick", "openFlags()");
+        document.getElementById("en").style.order = '1';
         document.getElementById("es").classList.add("hidenFlag");
+        document.getElementById("es").style.order = '2';
     } else {
         document.getElementById("pt").classList.add("hidenFlag");
+        document.getElementById("pt").style.order = '2';
         document.getElementById("en").classList.add("hidenFlag");
+        document.getElementById("en").style.order = '3';
         document.getElementById("es").classList.remove("hidenFlag");
         document.getElementById("es").setAttribute("onclick", "openFlags()");
+        document.getElementById("es").style.order = '1';
     }
 }
 
