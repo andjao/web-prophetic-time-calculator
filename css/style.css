@@ -76,7 +76,7 @@ nav {
 
 .activatedB {
     cursor: pointer;
-    opacity: 100%;
+    opacity: 1;
 }
 
 .activatedB:hover {
@@ -89,7 +89,7 @@ nav {
 
 .disabledB {
     cursor: default;
-    opacity: 30%;
+    opacity: 0.3;
 }
 
 #time {
