@@ -147,7 +147,7 @@ function openFlags(lang) {
     var el = document.createElement("div");
     el.setAttribute("readonly", "");
     el.setAttribute("id", "backgroundMenu");
-    el.setAttribute("onclick", `document.getElementById('backgroundMenu').remove(); setFlag('${lang}')`);
+    el.setAttribute("ontouchstart", `document.getElementById('backgroundMenu').remove(); setFlag('${lang}')`);
     el.remove;
     el.className = "backgroundMenu";
     document.body.appendChild(el);
