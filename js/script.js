@@ -19,7 +19,6 @@ document.addEventListener("click", function (e) {
         document.getElementById("nextV").className = "activatedB";
     }
     if (e.target.id.indexOf('btnCalc') > -1) {
-
         document.getElementById(btnID).classList.remove("btnClicked");
         btnID = e.target.id;
         if (document.getElementById("time").value === '') {
