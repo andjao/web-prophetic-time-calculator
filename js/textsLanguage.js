@@ -20,6 +20,8 @@ function capitalize(string) {
 }
 
 function setLang(lang) {
+    setFlag(lang)
+
     var httpRequest = new XMLHttpRequest();
     httpRequest.onreadystatechange = function () {
         if (httpRequest.readyState === 4 && httpRequest.status === 200) {
@@ -107,4 +109,32 @@ function addStrongEl(string, words) {
 function changeLang(lang) {
     localStorage.setItem("lang", lang);
     setLang(lang + ".json");
+}
+
+function setFlag(lang) {
+    if (lang.indexOf("pt") > -1) {
+        document.getElementById("pt").classList.remove("hidenFlag");
+        document.getElementById("pt").setAttribute("onclick", "openFlags()");
+        document.getElementById("en").classList.add("hidenFlag");
+        document.getElementById("es").classList.add("hidenFlag");
+    } else if (lang.indexOf("en") > -1) {
+        document.getElementById("pt").classList.add("hidenFlag");
+        document.getElementById("en").classList.remove("hidenFlag");
+        document.getElementById("en").setAttribute("onclick", "openFlags()");
+        document.getElementById("es").classList.add("hidenFlag");
+    } else {
+        document.getElementById("pt").classList.add("hidenFlag");
+        document.getElementById("en").classList.add("hidenFlag");
+        document.getElementById("es").classList.remove("hidenFlag");
+        document.getElementById("es").setAttribute("onclick", "openFlags()");
+    }
+}
+
+function openFlags() {
+    document.getElementById("pt").classList.remove("hidenFlag");
+    document.getElementById("pt").setAttribute("onclick", "changeLang('pt')");
+    document.getElementById("en").classList.remove("hidenFlag");
+    document.getElementById("en").setAttribute("onclick", "changeLang('en')");
+    document.getElementById("es").classList.remove("hidenFlag");
+    document.getElementById("es").setAttribute("onclick", "changeLang('es')");
 }

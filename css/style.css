@@ -194,19 +194,38 @@ footer {
         -webkit-box-direction: normal;
         -ms-flex-direction: column;
         flex-direction: column;
+        margin-top: 11vw;
     }
 
     #title {
+        z-index: 1000;
+        position: fixed;
+        top: 0;
+        left: 0;
+        margin: 0;
+        width: 100%;
+        padding: 5vw 0 3vw 2vw;
         text-align: left;
         font-size: 95%;
+        background-color: #fff;
     }
 
     nav {
+        z-index: 1001;
+        position: fixed;
+        top: 0;
+        right: 0;
         right: -2vw;
+        margin: 0;
+        padding: 3.5vw 5vw 0 2vw;
     }
 
     .flags {
         margin: 0 0 2vw 0;
+    }
+
+    .hidenFlag {
+        display: none;
     }
 
     #value {
