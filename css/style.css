@@ -160,6 +160,10 @@ footer {
         margin: 0 0 2vw 0;
     }
 
+    #value {
+        font-size: 6vw;
+    }
+
     .calcS {
         order: 1;
     }
@@ -170,6 +174,7 @@ footer {
 
     .btnCalc {
         margin: 1vw 0 2vw 0;
+        font-size: 6vw;
     }
 
     .resultS {
@@ -226,8 +231,17 @@ footer {
         bottom: -10vw;
     }
 
+    #nextV {
+        width: 15vw;
+    }
+
+    #backV {
+        width: 15vw;
+    }
+
     footer {
         order: 4;
+        font-size: 6vw;
     }
 
     .hiden {
