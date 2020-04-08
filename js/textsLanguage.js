@@ -112,9 +112,13 @@ function changeLang(lang) {
 }
 
 function setFlag(lang) {
+    if (document.getElementById('backgroundMenu')) {
+        document.getElementById('backgroundMenu').remove()
+    }
+
     if (lang.indexOf("pt") > -1) {
         document.getElementById("pt").classList.remove("hidenFlag");
-        document.getElementById("pt").setAttribute("onclick", "openFlags()");
+        document.getElementById("pt").setAttribute("onclick", "openFlags('pt')");
         document.getElementById("pt").style.order = '1';
         document.getElementById("en").classList.add("hidenFlag");
         document.getElementById("en").style.order = '2';
@@ -124,7 +128,7 @@ function setFlag(lang) {
         document.getElementById("pt").classList.add("hidenFlag");
         document.getElementById("pt").style.order = '3';
         document.getElementById("en").classList.remove("hidenFlag");
-        document.getElementById("en").setAttribute("onclick", "openFlags()");
+        document.getElementById("en").setAttribute("onclick", "openFlags('en')");
         document.getElementById("en").style.order = '1';
         document.getElementById("es").classList.add("hidenFlag");
         document.getElementById("es").style.order = '2';
@@ -134,12 +138,20 @@ function setFlag(lang) {
         document.getElementById("en").classList.add("hidenFlag");
         document.getElementById("en").style.order = '3';
         document.getElementById("es").classList.remove("hidenFlag");
-        document.getElementById("es").setAttribute("onclick", "openFlags()");
+        document.getElementById("es").setAttribute("onclick", "openFlags('es')");
         document.getElementById("es").style.order = '1';
     }
 }
 
-function openFlags() {
+function openFlags(lang) {
+    var el = document.createElement("div");
+    el.setAttribute("readonly", "");
+    el.setAttribute("id", "backgroundMenu");
+    el.setAttribute("onclick", `document.getElementById('backgroundMenu').remove(); setFlag('${lang}')`);
+    el.remove;
+    el.className = "backgroundMenu";
+    document.body.appendChild(el);
+
     document.getElementById("pt").classList.remove("hidenFlag");
     document.getElementById("pt").setAttribute("onclick", "changeLang('pt')");
     document.getElementById("en").classList.remove("hidenFlag");
