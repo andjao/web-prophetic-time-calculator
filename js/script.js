@@ -28,7 +28,6 @@ document.addEventListener("click", function (e) {
             return;
         }
 
-        document.getElementById("tooltip").className = "hiden";;
         document.getElementById(e.target.id).classList.add("btnClicked");
         calcTime(e.target.value);
     }
@@ -96,9 +95,9 @@ function calcTime(type, changeLang) {
     document.getElementById("result").innerHTML = result;
 }
 
-function copyStringToClipboard(str) {
-    var el = document.createElement('textarea');
-    el.value = str;
+function copyStringToClipboard(string) {
+    let el = document.createElement('textarea');
+    el.value = string;
     el.setAttribute('readonly', '');
     el.style = {
         display: 'none'
@@ -110,21 +109,81 @@ function copyStringToClipboard(str) {
 }
 
 function tooltip(type, text, color) {
+    tooltipType = type;
+    if (document.getElementById('tooltipStyle') && document.getElementById('tooltip')) {
+        document.getElementById('tooltipStyle').remove();
+        document.getElementById('tooltip').remove();
+    }
+    let el = document.createElement('p');
+    el.id = 'tooltip';
+    el.innerHTML = text;
+    let style = document.createElement('style');
+    style.id = 'tooltipStyle';
+    style.innerHTML = `
+        #tooltip {
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            width: -webkit-max-content;
+            width: -moz-max-content;
+            width: max-content;
+            left: 50%;
+            bottom: -3vw;
+            border-radius: 50px;
+            padding: 2vw;
+            background-color: ${color};
+            text-align: center;
+            font-size: 5vw;
+            color: #fff;
+            font-weight: bold;
+            position: fixed;
+            z-index: 1000;
+        }.show {
+            -webkit-animation: fadein 0.5s;
+            animation: fadein 0.5s;
+        }.hidden {
+            -webkit-animation: fadeout 0.5s;
+            animation: fadeout 0.5s;
+        }@-webkit-keyframes fadein {
+            from {
+                opacity: 0;
+            }to {
+                opacity: 1;
+            }
+        }@keyframes fadein {
+            from {
+                opacity: 0;
+            }to {
+                opacity: 1;
+            }
+        }@-webkit-keyframes fadeout {
+            from {
+                opacity: 1;
+            }to {
+                opacity: 0;
+            }
+        }@keyframes fadeout {
+            from {
+                opacity: 1;
+            }to {
+                opacity: 0;
+            }
+        }
+    `;
+    document.head.appendChild(style);
     clearTimeout(time0);
     clearTimeout(time1);
     clearTimeout(time2);
-    tooltipType = type;
-    document.getElementById("tooltip").className = "hiden";
-    document.getElementById("tooltip").innerHTML = text;
-    document.getElementById("tooltip").style.backgroundColor = color;
     const time = 200;
     time0 = setTimeout(function () {
-        document.getElementById("tooltip").className = "show";
+        el.className = 'show'
+        document.body.appendChild(el);
     }, time);
     time1 = setTimeout(function () {
-        document.getElementById("tooltip").className = "hiden2";
+        el.className = 'hidden'
     }, time + 3000);
     time2 = setTimeout(function () {
-        document.getElementById("tooltip").className = "hiden";
+        document.head.removeChild(style);
+        document.body.removeChild(el);
     }, time + 3500);
 }
