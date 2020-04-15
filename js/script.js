@@ -3,8 +3,8 @@ let btnID = 'btnCalcSec';
 let value;
 let typeSave;
 let result;
-let time0, time1, time2;
-let tooltipType;
+let time0, time1;
+let toastType;
 document.addEventListener("click", function (e) {
     if (e.target.id == "nextV") {
         versicles = 1;
@@ -24,7 +24,7 @@ document.addEventListener("click", function (e) {
         if (document.getElementById("time").value === '') {
             document.getElementById("time").focus();
             document.getElementById("result").innerHTML = "";
-            tooltip('alert', texts.tAlerts.tTimeEmpty, 'red');
+            toast('alert', texts.tAlerts.tTimeEmpty, 'red', 5);
             return;
         }
 
@@ -36,7 +36,7 @@ document.addEventListener("click", function (e) {
         copy = copy.replace(/        /g, "");
         copy = copy.replace(/:/g, ":\n");
         copyStringToClipboard(copy);
-        tooltip(e.target.id, texts.words.copied, '#0071de');
+        toast(e.target.id, texts.words.copied, '#0071de', 5);
     }
 });
 
@@ -108,19 +108,23 @@ function copyStringToClipboard(string) {
     document.body.removeChild(el);
 }
 
-function tooltip(type, text, color) {
-    tooltipType = type;
-    if (document.getElementById('tooltipStyle') && document.getElementById('tooltip')) {
-        document.getElementById('tooltipStyle').remove();
-        document.getElementById('tooltip').remove();
+function toast(type = 'alert', text = 'test', color = 'red', time = 5) {
+    toastType = type;
+    if (document.getElementById('toastStyle') && document.getElementById('toast')) {
+        document.getElementById('toastStyle').remove();
+        document.getElementById('toast').remove();
     }
-    let el = document.createElement('p');
-    el.id = 'tooltip';
-    el.innerHTML = text;
+    let div = document.createElement('div');
+    let para = document.createElement('p');
+    div.appendChild(para);
+    div.id = 'toast';
+    para.innerHTML = text;
     let style = document.createElement('style');
-    style.id = 'tooltipStyle';
+    style.id = 'toastStyle';
     style.innerHTML = `
-        #tooltip {
+        #toast {
+            display: flex;
+            justify-content: center; 
             -webkit-transform: translate(-50%, -50%);
             -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
@@ -130,60 +134,41 @@ function tooltip(type, text, color) {
             left: 50%;
             bottom: -3vw;
             border-radius: 50px;
-            padding: 2vw;
+            padding: 2vw 0;
             background-color: ${color};
-            text-align: center;
+            white-space: nowrap;
             font-size: 5vw;
-            color: #fff;
             font-weight: bold;
             position: fixed;
-            z-index: 1000;
+            z-index: 9999;
+            overflow: hidden;
+        }#toast p{
+            margin: 0;
+            color: #fff;
         }.show {
-            -webkit-animation: fadein 0.5s;
-            animation: fadein 0.5s;
-        }.hidden {
-            -webkit-animation: fadeout 0.5s;
-            animation: fadeout 0.5s;
-        }@-webkit-keyframes fadein {
-            from {
-                opacity: 0;
-            }to {
-                opacity: 1;
-            }
-        }@keyframes fadein {
-            from {
-                opacity: 0;
-            }to {
-                opacity: 1;
-            }
-        }@-webkit-keyframes fadeout {
-            from {
-                opacity: 1;
-            }to {
-                opacity: 0;
-            }
-        }@keyframes fadeout {
-            from {
-                opacity: 1;
-            }to {
-                opacity: 0;
-            }
+            -webkit-animation: fadeInOut ${time}s;
+            animation: fadeInOut ${time}s;
+        }@-webkit-keyframes fadeInOut {
+            0% { max-width: 0%; padding 2vw 0 }
+            25% { max-width: 100%; padding: 2vw 2vw }
+            75% { max-width: 100%; padding: 2vw 2vw }
+            100% { max-width: 0%; padding: 2vw 0 }
+        }@keyframes fadeInOut {
+            0% { max-width: 0%; padding 2vw 0 }
+            25% { max-width: 100%; padding: 2vw 2vw }
+            75% { max-width: 100%; padding: 2vw 2vw }
+            100% { max-width: 0%; padding: 2vw 0 }
         }
     `;
-    document.head.appendChild(style);
     clearTimeout(time0);
     clearTimeout(time1);
-    clearTimeout(time2);
-    const time = 200;
     time0 = setTimeout(function () {
-        el.className = 'show'
-        document.body.appendChild(el);
-    }, time);
-    time1 = setTimeout(function () {
-        el.className = 'hidden'
-    }, time + 3000);
-    time2 = setTimeout(function () {
+        div.className = 'show'
+        document.head.appendChild(style);
+        document.body.appendChild(div);
+    }, 200);
+    time0 = setTimeout(function () {
         document.head.removeChild(style);
-        document.body.removeChild(el);
-    }, time + 3500);
+        document.body.removeChild(div);
+    }, 200 + time * 1000);
 }

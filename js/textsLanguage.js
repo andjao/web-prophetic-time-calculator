@@ -56,12 +56,12 @@ function setLang(lang) {
             wordsBold();
             document.getElementById("resultT").innerHTML = texts.words.result + ":";
 
-            switch (tooltipType) {
+            switch (toastType) {
                 case 'alert':
-                    document.getElementById("tooltip").innerHTML = texts.tAlerts.tTimeEmpty;
+                    document.getElementById("toast").firstElementChild.innerHTML = texts.tAlerts.tTimeEmpty;
                     break;
                 case 'copy':
-                    document.getElementById("tooltip").innerHTML = texts.words.copied;
+                    document.getElementById("toast").innerHTML = texts.words.copied;
                     break;
             }
 
