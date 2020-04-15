@@ -141,7 +141,9 @@ function toast(type = 'alert', text = 'test', color = 'red', time = 5) {
             position: fixed;
             z-index: 9999;
             overflow: hidden;
+            display: none;
         }.show {
+            display: flex !important;
             -webkit-animation: fadeInOut ${time}s;
             animation: fadeInOut ${time}s;
         }@-webkit-keyframes fadeInOut {
@@ -156,12 +158,12 @@ function toast(type = 'alert', text = 'test', color = 'red', time = 5) {
             100% { max-width: 0%; padding: 2vw 0 }
         }
     `;
+    document.head.appendChild(style);
+    document.body.appendChild(div);
     clearTimeout(time0);
     clearTimeout(time1);
     time0 = setTimeout(function () {
         div.className = 'show'
-        document.head.appendChild(style);
-        document.body.appendChild(div);
     }, 200);
     time0 = setTimeout(function () {
         document.head.removeChild(style);
