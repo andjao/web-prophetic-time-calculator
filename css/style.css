@@ -186,6 +186,7 @@ footer {
     nav {
         display: -webkit-box;
         display: -ms-flexbox;
+        display: -ms-grid;
         display: grid;
         z-index: 1001;
         position: fixed;
