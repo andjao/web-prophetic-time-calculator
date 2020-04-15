@@ -6,6 +6,10 @@ let result;
 let time0, time1;
 let toastType;
 document.addEventListener("click", function (e) {
+    if (document.getElementById('toastStyle') && document.getElementById('toast')) {
+        document.getElementById('toastStyle').remove();
+        document.getElementById('toast').remove();
+    }
     if (e.target.id == "nextV") {
         versicles = 1;
         wordsBold();
