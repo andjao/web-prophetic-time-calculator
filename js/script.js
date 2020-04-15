@@ -115,10 +115,8 @@ function toast(type = 'alert', text = 'test', color = 'red', time = 5) {
         document.getElementById('toast').remove();
     }
     let div = document.createElement('div');
-    let para = document.createElement('p');
-    div.appendChild(para);
     div.id = 'toast';
-    para.innerHTML = text;
+    div.innerHTML = text;
     let style = document.createElement('style');
     style.id = 'toastStyle';
     style.innerHTML = `
@@ -138,13 +136,11 @@ function toast(type = 'alert', text = 'test', color = 'red', time = 5) {
             background-color: ${color};
             white-space: nowrap;
             font-size: 5vw;
+            color: #fff;
             font-weight: bold;
             position: fixed;
             z-index: 9999;
             overflow: hidden;
-        }#toast p{
-            margin: 0;
-            color: #fff;
         }.show {
             -webkit-animation: fadeInOut ${time}s;
             animation: fadeInOut ${time}s;

@@ -56,13 +56,15 @@ function setLang(lang) {
             wordsBold();
             document.getElementById("resultT").innerHTML = texts.words.result + ":";
 
-            switch (toastType) {
-                case 'alert':
-                    document.getElementById("toast").firstElementChild.innerHTML = texts.tAlerts.tTimeEmpty;
-                    break;
-                case 'copy':
-                    document.getElementById("toast").innerHTML = texts.words.copied;
-                    break;
+            if (document.getElementById("toast")) {
+                switch (toastType) {
+                    case 'alert':
+                        document.getElementById("toast").innerHTML = texts.tAlerts.tTimeEmpty;
+                        break;
+                    case 'copy':
+                        document.getElementById("toast").innerHTML = texts.words.copied;
+                        break;
+                }
             }
 
             if (document.getElementById("result").innerHTML !== "") {
