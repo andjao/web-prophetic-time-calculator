@@ -1,10 +1,12 @@
+import {
+    toast
+} from '../../js/toast.js';
+
 let versicles = 0;
 let btnID = 'btnCalcSec';
 let value;
 let typeSave;
 let result;
-let time0, time1;
-let toastType;
 document.addEventListener("click", function (e) {
     if (document.getElementById('toastStyle') && document.getElementById('toast')) {
         document.getElementById('toastStyle').remove();
@@ -46,6 +48,7 @@ document.addEventListener("click", function (e) {
 
 function calcTime(type, changeLang) {
     typeSave = type;
+    let tYears;
 
     value = document.getElementById("time").value === '' || changeLang !== undefined ? value : document.getElementById("time").value;
 
@@ -110,67 +113,4 @@ function copyStringToClipboard(string) {
     el.select();
     document.execCommand('copy');
     document.body.removeChild(el);
-}
-
-function toast(type = 'alert', text = 'test', color = 'red', time = 5) {
-    toastType = type;
-    if (document.getElementById('toastStyle') && document.getElementById('toast')) {
-        document.getElementById('toastStyle').remove();
-        document.getElementById('toast').remove();
-    }
-    let div = document.createElement('div');
-    div.id = 'toast';
-    div.innerHTML = text;
-    let style = document.createElement('style');
-    style.id = 'toastStyle';
-    style.innerHTML = `
-        #toast {
-            display: flex;
-            justify-content: center; 
-            -webkit-transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-            width: -webkit-max-content;
-            width: -moz-max-content;
-            width: max-content;
-            left: 50%;
-            bottom: -3vw;
-            border-radius: 50px;
-            padding: 2vw 0;
-            background-color: ${color};
-            white-space: nowrap;
-            font-size: 5vw;
-            color: #fff;
-            font-weight: bold;
-            position: fixed;
-            z-index: 9999;
-            overflow: hidden;
-            display: none;
-        }.show {
-            display: flex !important;
-            -webkit-animation: fadeInOut ${time}s;
-            animation: fadeInOut ${time}s;
-        }@-webkit-keyframes fadeInOut {
-            0% { max-width: 0%; padding 2vw 0 }
-            25% { max-width: 100%; padding: 2vw 2vw }
-            75% { max-width: 100%; padding: 2vw 2vw }
-            100% { max-width: 0%; padding: 2vw 0 }
-        }@keyframes fadeInOut {
-            0% { max-width: 0%; padding 2vw 0 }
-            25% { max-width: 100%; padding: 2vw 2vw }
-            75% { max-width: 100%; padding: 2vw 2vw }
-            100% { max-width: 0%; padding: 2vw 0 }
-        }
-    `;
-    document.head.appendChild(style);
-    document.body.appendChild(div);
-    clearTimeout(time0);
-    clearTimeout(time1);
-    time0 = setTimeout(function () {
-        div.className = 'show'
-    }, 200);
-    time0 = setTimeout(function () {
-        document.head.removeChild(style);
-        document.body.removeChild(div);
-    }, 200 + time * 1000);
 }
