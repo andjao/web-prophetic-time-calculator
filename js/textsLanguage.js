@@ -1,3 +1,9 @@
+import {
+    versicles
+} from './script.js';
+
+export let texts;
+
 window.onload = function () {
     const navLang = navigator.language.substring(0, 2);
 
@@ -76,7 +82,7 @@ function setLang(lang) {
     httpRequest.send();
 }
 
-function wordsBold() {
+export function wordsBold() {
     document.getElementById("versicleP").innerHTML = addStrongEl(texts.tVersicles[versicles], [
         texts.tPlural.tDays,
         texts.tSingular.tDay,
@@ -108,7 +114,7 @@ function addStrongEl(string, words) {
     }
 }
 
-function changeLang(lang) {
+window.changeLang = function (lang) {
     localStorage.setItem("lang", lang);
     setLang(lang + ".json");
 }
@@ -145,7 +151,7 @@ function setFlag(lang) {
     }
 }
 
-function openFlags(lang) {
+window.openFlags = function (lang) {
     var el = document.createElement("div");
     el.setAttribute("readonly", "");
     el.setAttribute("id", "backgroundMenu");

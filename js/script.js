@@ -2,7 +2,12 @@ import {
     toast
 } from '../../js/toast.js';
 
-let versicles = 0;
+import {
+    texts,
+    wordsBold
+} from './textsLanguage.js';
+
+export let versicles = 0;
 let btnID = 'btnCalcSec';
 let value;
 let typeSave;
