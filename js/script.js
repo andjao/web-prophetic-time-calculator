@@ -4,14 +4,6 @@ let value;
 let typeSave;
 let result;
 document.addEventListener("click", function (e) {
-    if (navigator.share) {
-        navigator.share({
-            title: 'mobiForge: Web Share API',
-            text: 'Check out this great article about the Web Share API',
-            url: 'https://mobiforge.com/design-development/web-share-api'
-        })
-    }
-    
     if (e.target.id == "nextV") {
         versicles = 1;
         wordsBold();
@@ -43,6 +35,12 @@ document.addEventListener("click", function (e) {
         copy = copy.replace(/:/g, ":\n");
         copyToClipboard(copy);
         toast(e.target.id, texts.words.copied, '#0071de', 5);
+    }
+    if (e.target.id.indexOf('share') > -1) {
+        let copy = document.getElementById('result2').innerHTML.replace(/<br>/g, "");
+        copy = copy.replace(/        /g, "");
+        copy = copy.replace(/:/g, ":\n");
+        share(texts.tTitle, copy, window.location.href);
     }
 });
 
@@ -90,6 +88,7 @@ function calcTime(type, changeLang) {
     const tSeconds = (tMinutes * 60);
 
     result = `<img src='./img/copy.svg' class='copy' id='copy' alt='${texts.words.copy}' title='${texts.words.copy}'>
+        <img src='./img/share.svg' class='share' id='share' alt='${texts.words.share}' title='${texts.words.share}'>
         <p id='result2'>${value} ${type} ${(value < 2 ? texts.tSingular.tLiteral : texts.tPlural.tLiterals)} ${texts.phrases.equivalentTo}:<br>
         ${Math.floor(tSeconds)} ${(tSeconds < 2 ? texts.tSingular.tSecond : texts.tPlural.tSeconds)} ${(tSeconds < 2 ? texts.tSingular.tPropheticM : texts.tPlural.tPropheticsM)}.<br>
         ${Math.floor(tMinutes)} ${(tMinutes < 2 ? texts.tSingular.tMinute : texts.tPlural.tMinutes)} ${(tMinutes < 2 ? texts.tSingular.tPropheticM : texts.tPlural.tPropheticsM)}.<br>

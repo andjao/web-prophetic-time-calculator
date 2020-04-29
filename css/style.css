@@ -142,6 +142,23 @@ nav {
     transform: translate3d(0, 2px, 0);
 }
 
+.share {
+    position: absolute;
+    width: 30px;
+    top: 20px;
+    right: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.share:hover {
+    -webkit-transition: 235ms;
+    -o-transition: 235ms;
+    transition: 235ms;
+    -webkit-transform: translate3d(0, 2px, 0);
+    transform: translate3d(0, 2px, 0);
+}
+
 #resultT {
     padding: 0 0 0 15px;
 }
@@ -236,6 +253,15 @@ footer {
     }
 
     .copy {
+        position: absolute;
+        width: 10vw;
+        top: 5vw;
+        right: 18vw;
+        border: none;
+        cursor: pointer;
+    }
+
+    .share {
         position: absolute;
         width: 10vw;
         top: 5vw;
