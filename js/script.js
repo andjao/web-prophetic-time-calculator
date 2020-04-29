@@ -1,13 +1,4 @@
-import {
-    toast
-} from '../../js/toast.js';
-
-import {
-    texts,
-    wordsBold
-} from './textsLanguage.js';
-
-export let versicles = 0;
+window.versicles = 0;
 let btnID = 'btnCalcSec';
 let value;
 let typeSave;

@@ -1,8 +1,4 @@
-import {
-    versicles
-} from './script.js';
-
-export let texts;
+window.texts = '';
 
 window.onload = function () {
     const navLang = navigator.language.substring(0, 2);
@@ -82,7 +78,7 @@ function setLang(lang) {
     httpRequest.send();
 }
 
-export function wordsBold() {
+window.wordsBold = function () {
     document.getElementById("versicleP").innerHTML = addStrongEl(texts.tVersicles[versicles], [
         texts.tPlural.tDays,
         texts.tSingular.tDay,
