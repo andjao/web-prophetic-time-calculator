@@ -4,6 +4,14 @@ let value;
 let typeSave;
 let result;
 document.addEventListener("click", function (e) {
+    if (navigator.share) {
+        navigator.share({
+            title: 'mobiForge: Web Share API',
+            text: 'Check out this great article about the Web Share API',
+            url: 'https://mobiforge.com/design-development/web-share-api'
+        })
+    }
+    
     if (e.target.id == "nextV") {
         versicles = 1;
         wordsBold();
@@ -33,7 +41,7 @@ document.addEventListener("click", function (e) {
         let copy = document.getElementById('result2').innerHTML.replace(/<br>/g, "");
         copy = copy.replace(/        /g, "");
         copy = copy.replace(/:/g, ":\n");
-        copyStringToClipboard(copy);
+        copyToClipboard(copy);
         toast(e.target.id, texts.words.copied, '#0071de', 5);
     }
 });
@@ -92,17 +100,4 @@ function calcTime(type, changeLang) {
         ${Math.floor(tYears)} ${(tYears < 2 ? texts.tSingular.tYear : texts.tPlural.tYears)} ${(tYears < 2 ? texts.tSingular.tPropheticM : texts.tPlural.tPropheticsM)}.</p>`;
 
     document.getElementById("result").innerHTML = result;
-}
-
-function copyStringToClipboard(string) {
-    let el = document.createElement('textarea');
-    el.value = string;
-    el.setAttribute('readonly', '');
-    el.style = {
-        display: 'none'
-    };
-    document.body.appendChild(el);
-    el.select();
-    document.execCommand('copy');
-    document.body.removeChild(el);
 }
