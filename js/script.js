@@ -25,7 +25,6 @@ document.addEventListener("click", function (e) {
             toast('alert', texts.tAlerts.tTimeEmpty, 'red', 5);
             return;
         }
-
         document.getElementById(e.target.id).classList.add("btnClicked");
         calcTime(e.target.value);
     }
